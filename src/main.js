@@ -12,16 +12,19 @@ import store from './store';
 
 // 自訂元件
 import App from './App.vue';
+import Signin from './components/Signin.vue'
 
 // 啟用套件 & 元件
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios);
 Vue.component('Loading',Loading);
+// Vue.component('Signin', Signin);
 Vue.use(VeeValidate);
 VeeValidate.Validator.localize('zh_TW', zhTWValidate);
 
 // 修正跨域登入
 axios.defaults.withCredentials = true;
+
 new Vue({
   router,
   store,

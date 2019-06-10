@@ -1,0 +1,19 @@
+.footbar{
+    width:100%;
+    padding:20px;
+    text-align: center;
+    background-color: #EAF0ED;
+    .foobar-icon-list{
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        list-style: none;
+        padding-inline-start: 0px;
+        li{
+            padding:0px 18px 0px 18px;
+            a{
+                color : #3F5D45;
+            }
+        }
+    }
+} 

@@ -1,0 +1,24 @@
+
+.dialog-content{
+    width:50%;
+    border: solid $second 1px;
+    border-radius: 5px;
+    margin: 35px auto;
+    padding:20px;
+    box-shadow: 2px 2px 2px $second;
+    .dialog-text{
+        margin-bottom:25px;
+            text-align: center;
+            font-family: $font-family-tai;
+        }
+    input[type="email"], input[type="password"]{
+        padding:10px;
+        margin-bottom: 15px;              
+    }
+    .dialog-btn{
+        width: 100%;
+        padding: 10px;
+        display: block;
+    }
+}
+

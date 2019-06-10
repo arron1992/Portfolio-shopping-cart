@@ -16,17 +16,27 @@
             list-style:none;
             text-decoration: none;
             .topmenu-item{
+                list-style:none;
+                text-decoration: none;
                 color: #3F5D45;
                 text-decoration:none;
                 font-size: 18px;
                 padding: 37px;
                 letter-spacing: 5px;
                 font-family:Microsoft JhengHei;
+                position: relative;
                 &:hover{       
                     background: #3F5D45;
                     color: #fff;
+                }
+                .cart-num{
+                    position: absolute;
+                    top:23px;
+                    right:23px;
+                    letter-spacing: 0px;
                 }
             }
         }
     }
 }
+
