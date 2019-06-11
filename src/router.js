@@ -16,7 +16,19 @@ export default new Router({
     {
       path: '/store',
       name: 'store',
-      component: () => import('./views/ProductList.vue')
+      component: () => import('./views/ProductList.vue'),
+      children:[
+        {
+          path: 'products',
+          name: 'porducts',
+          component: () => import('./components/storeProducts.vue')
+        },
+        {
+          path: 'porduct/:itemId',
+          name: 'porduct',
+          component: () => import('./components/getSingleProduct.vue')
+        }
+      ]
     }
   ]
 })

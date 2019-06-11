@@ -29,11 +29,9 @@
                     background: #3F5D45;
                     color: #fff;
                 }
-                .cart-num{
-                    position: absolute;
-                    top:23px;
-                    right:23px;
-                    letter-spacing: 0px;
+                &:focus {
+                    background: #3F5D45;
+                    color: #fff;
                 }
             }
         }

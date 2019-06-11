@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Headbar/>
         <div class="dialog-content">   
             <h3 class="dialog-text">會員登入</h3>
             <label for="exampleInputEmail"></label>
@@ -8,12 +9,19 @@
             <input type="password" class="w-100" v-model="user.password" id="exampleInputPassword" placeholder="Password">           
             <button class="btn btn-info w-100 my-3 p-2" @click.prevent="signIn()" @keyup.enter="signIn()">Sign In</button>                
         </div>
+        <Footbar/>
     </div>
 </template>
 <script>
+import Headbar from '../components/Headbar.vue';
+import Footbar from '../components/Footbar.vue';
 import $ from 'jquery';
 import {mapActions, mapGetters} from 'vuex';
 export default {
+    components : { 
+        Headbar,
+        Footbar,
+    },
     data(){
         return{
             user:{
