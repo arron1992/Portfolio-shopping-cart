@@ -28,7 +28,7 @@ export default {
             axios.get(url).then((res)=>{
                 if(res.data.data.carts){
                     context.commit('CART',res.data.data);
-                    // console.log(res.data.data);
+                    console.log(res.data.data);
                 }
                 context.commit('LOADING', false , {root:true} );        
             })

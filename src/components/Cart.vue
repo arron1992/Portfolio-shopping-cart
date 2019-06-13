@@ -9,6 +9,7 @@
             <div class="cart-modal-content">
                 <span class="cart-modal-text text-secondary">已選擇商品</span>
                 <div class="cart-menu-scroll">
+                    <p class="cart-info text-secondary" v-if="cart.carts.carts.length == 0">購物車中無任何商品</p>
                     <table class="table">
                     <tbody>
                         <tr v-for="(item, key) in cart.carts.carts" :key="key">
@@ -31,12 +32,12 @@
                     </tbody> 
                 </table> 
                 </div>  
-                <div class="cart-modal-footer">
+                <div class="cart-modal-footer" v-if="cart.carts.carts.length !== 0">
                     <div class="d-flex total-area">
                         <span class="total-txt text-secondary">總計</span>
                         <span class="total-price ml-auto">NT {{cart.carts.final_total}}</span>
                     </div>   
-                    <a href="#" class="checkout-btn btn btn-outline-info">結帳</a>
+                    <a href="#" class="checkout-btn">結帳</a>
                 </div>
             </div>     
         </div>

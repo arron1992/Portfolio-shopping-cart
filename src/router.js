@@ -21,7 +21,7 @@ export default new Router({
         {
           path: 'products',
           name: 'porducts',
-          component: () => import('./components/storeProducts.vue')
+          component: () => import('./components/StoreProducts.vue')
         },
         {
           path: 'porduct/:itemId',

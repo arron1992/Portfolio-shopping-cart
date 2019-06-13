@@ -19,6 +19,16 @@
         width: 100%;
         padding: 10px;
         display: block;
+        background-color: $second;
+        color: $main;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 40px;
+        font-size: 16px;
+        &:hover{
+            background-color: $main;
+            color: $second;
+        }
     }
 }
 

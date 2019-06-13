@@ -7,7 +7,8 @@
             <input type="email" class="w-100" v-model="user.username" id="exampleInputEmail" placeholder="Enter email">          
             <label for="exampleInputPassword"></label>
             <input type="password" class="w-100" v-model="user.password" id="exampleInputPassword" placeholder="Password">           
-            <button class="btn btn-info w-100 my-3 p-2" @click.prevent="signIn()" @keyup.enter="signIn()">Sign In</button>                
+            <!-- <button class="btn btn-info w-100 my-3 p-2" @click.prevent="signIn()" @keyup.enter="signIn()">Sign In</button>  -->
+            <a href="#" class="dialog-btn" @click.prevent="signIn()">Sign In</a>               
         </div>
         <Footbar/>
     </div>
