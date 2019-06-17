@@ -39,7 +39,7 @@ export default {
             vm.$http.post(api, vm.user).then((response) =>{
                 console.log(response.data)
                 if(response.data.success){
-                    vm.$router.push('/store')            
+                    vm.$router.push('/store/products')            
                 } else {
                     console.log('登入失敗')
                 }

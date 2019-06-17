@@ -29,6 +29,7 @@ export default {
                 if(res.data.data.carts){
                     context.commit('CART',res.data.data);
                     console.log(res.data.data);
+                    console.log(this)
                 }
                 context.commit('LOADING', false , {root:true} );        
             })

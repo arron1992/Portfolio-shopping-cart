@@ -36,8 +36,9 @@
                     <div class="d-flex total-area">
                         <span class="total-txt text-secondary">總計</span>
                         <span class="total-price ml-auto">NT {{cart.carts.final_total}}</span>
-                    </div>   
-                    <a href="#" class="checkout-btn">結帳</a>
+                    </div>  
+                    <router-link class="checkout-btn" to="/checkout">結帳</router-link>
+                    <!-- <a href="#" class="checkout-btn" @click.prevent="goCheckOut()">結帳</a> -->
                 </div>
             </div>     
         </div>
@@ -52,10 +53,13 @@ export default {
         }
     },
     methods:{
+    goCheckOut(){      
+        this.$router.push(`/checkout`);
+    },
         ...mapActions('cartModules',['getCart','removeCart']),
     },
     computed:{
-        ...mapGetters('cartModules',['cart'])
+        ...mapGetters('cartModules',['cart']),
     },
     created(){
         this.getCart();
