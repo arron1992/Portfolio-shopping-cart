@@ -1,0 +1,70 @@
+<template>
+    <div>
+        <loading :active.sync="isLoading"></loading>
+        <!-- Table Area-->
+        <div class="row">
+            <div class="col-12 mt-3">
+                <table class="table table-hover table-bordered">
+                    <thead class="ad-order-thead">
+                        <th width="120">Purchase time</th>
+                        <th width="150">E-mail</th>
+                        <th width="150">Products</th>
+                        <th width="100">Order Bill</th>
+                        <th width="100">Status</th>
+                    </thead>
+                    <tbody class="ad-order-tbody">
+                        <tr v-for="item in orders" :key="item.id">
+                            <td class="align-middle">{{item.create_at}}</td>
+                            <td class="align-middle">{{item.user.email}}</td>
+                            <!-- <td class="align-middle">{{item.products.product.title}}
+
+                            </td> -->
+                            <td class="align-middle">
+                                <ul class="table-ul">
+                                    <li v-for="(product, i) in item.products" :key="i">
+                                        {{ product.product.title }} 
+                                        <!-- <span class="d-block"> {{ product.qty }}/{{ product.product.unit }}</span> -->
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="align-middle text-right">NT {{item.total}}</td>
+                            <td class="align-middle">
+                                <div class="able" v-if="item.is_paid">Paid</div>
+                                <div class="unable" v-else>Unpaid</div>
+                            </td>                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+
+            <!-- pagination -->       
+            <Pagination :page-data="pagination" v-on:bondMethod="reLoadMethod"></Pagination>
+        </div>
+    </div>
+</template>
+<script>
+import {mapActions, mapGetters} from 'vuex';
+import Pagination from './Pagination';
+export default {
+    components:{
+        Pagination
+    },
+    data(){
+        return {}
+    },
+    methods:{
+        reLoadMethod(page){
+            // 接收 Pagination.vue 傳來的 page , 重新渲染頁面
+            this.getOrders(page);
+        },
+        ...mapActions("adOrdersModules",["getOrders"]),
+    },
+    computed:{
+        ...mapGetters(["isLoading"]),
+        ...mapGetters("adOrdersModules",["orders","pagination"]),
+    },
+    created(){
+        this.getOrders()
+    }
+}
+</script>

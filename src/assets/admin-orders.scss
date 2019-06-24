@@ -1,0 +1,34 @@
+.table{
+    .ad-order-thead{
+        font-family: "HelveticaNeue-Bold";
+        font-size: 20px;
+        color: #000000;
+    }
+    .ad-order-tbody{
+        font-family: "HelveticaNeue";
+        font-size: 18px;
+        .table-ul{
+            list-style-type: none;
+            margin:10px 0px;
+            padding-inline-start: 0px;
+        }
+        .able{
+            display: block;
+            background-color: #F5A623;
+            width:100%;
+        }
+        .unable{
+            background-color: #9B9B9B;
+            display: block;
+        }
+        .able, .unable {
+            border-radius: 5px;
+            font-size: 18px;
+            letter-spacing: 2px;  
+            text-align: center;
+            padding:10px 20px;
+            color:#fff;
+        }
+        
+    }
+}
