@@ -51,6 +51,31 @@ export default new Router({
           component: () => import('./components/Client-done.vue')
         }
       ]
+    },
+    {
+      path: '/admin',
+      name: '',
+      component: () => import('./views/AdminPage.vue'),
+      children:[
+        {
+          path: '',
+          name: '',
+          component: () => import('./components/Admin-orders'),
+          meta: { requiresAuth: true }
+        },
+        {
+          path: 'coupons',
+          name: 'admin-coupons',
+          component: () => import('./components/Admin-coupons'),
+          meta: { requiresAuth: true }
+        },
+        {
+          path: 'products',
+          name: 'admin-products',
+          component: () => import('./components/Admin-products'),
+          meta: { requiresAuth: true }
+        }
+      ]
     }
   ]
 })

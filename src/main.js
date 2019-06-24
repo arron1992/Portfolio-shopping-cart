@@ -25,6 +25,22 @@ VeeValidate.Validator.localize('zh_TW', zhTWValidate);
 // 修正跨域登入
 axios.defaults.withCredentials = true;
 
+// '檢查用戶是否仍持續登入' => 驗證登入成功後即切換網址
+router.beforeEach((to, from, next) => {
+  if(to.meta.requiresAuth){
+      const api =`${process.env.VUE_APP_APIPATH}/api/user/check`    
+      axios.post(api).then((response) =>{
+        if(response.data.success){
+          next();
+        } else{
+          next({path:'/login'})
+        }
+    })
+  } else {
+    next();
+  }
+})
+
 new Vue({
   router,
   store,

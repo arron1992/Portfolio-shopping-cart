@@ -32,9 +32,9 @@ section .checkout-step{
         background: $second;
         position: absolute;
         height: 5px;
-        width: 100px;
+        width: 130px;
         z-index: -1;
-        left: 117px;
+        left: 120px;
         top: 45px;      
     }
 }
@@ -43,7 +43,6 @@ section .checkout-step{
     margin-left:0;
     margin-right:0;
     font-family: monospace;
-    // letter-spacing: 2px;
     font-size: 14px;
     .client-order{
         display: block;

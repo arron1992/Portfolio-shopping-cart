@@ -2,9 +2,11 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import productsModules from './products';
 import cartModules from './cart';
+import adOrdersModules from './ad-orders';
+import adCouponsModules from './ad-coupons';
+import adProductsModules from './ad-products';
 
 Vue.use(Vuex);
-
 export default new Vuex.Store({
     script:true,
     state:{
@@ -25,6 +27,9 @@ export default new Vuex.Store({
     },
     modules:{
         productsModules,
-        cartModules
+        cartModules,
+        adOrdersModules,
+        adCouponsModules,
+        adProductsModules
     }
 })
