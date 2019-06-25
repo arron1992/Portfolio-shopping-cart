@@ -56,12 +56,13 @@ export default new Router({
       path: '/admin',
       name: '',
       component: () => import('./views/AdminPage.vue'),
+      meta: { requiresAuth: true },
       children:[
         {
           path: '',
           name: '',
           component: () => import('./components/Admin-orders'),
-          meta: { requiresAuth: true }
+          meta: { requiresAuth: true }, 
         },
         {
           path: 'coupons',

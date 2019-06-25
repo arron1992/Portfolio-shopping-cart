@@ -14,7 +14,6 @@
 export default {
     methods:{
         signOut(){
-            console.log("hi")
             const vm = this;
             const api =`${process.env.VUE_APP_APIPATH}/logout`
             vm.$http.post(api).then((response) =>{

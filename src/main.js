@@ -12,13 +12,15 @@ import store from './store';
 
 // 自訂元件
 import App from './App.vue';
-import Signin from './components/Signin.vue'
+import currencyFilter from './filiters/currency';
+import timestampFilter from './filiters/timestamp';
 
-// 啟用套件 & 元件
+// 啟用套件 & 元件 & Filters
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios);
 Vue.component('Loading',Loading);
-// Vue.component('Signin', Signin);
+Vue.filter('currency', currencyFilter);
+Vue.filter('timestamp', timestampFilter);
 Vue.use(VeeValidate);
 VeeValidate.Validator.localize('zh_TW', zhTWValidate);
 
@@ -28,9 +30,10 @@ axios.defaults.withCredentials = true;
 // '檢查用戶是否仍持續登入' => 驗證登入成功後即切換網址
 router.beforeEach((to, from, next) => {
   if(to.meta.requiresAuth){
-      const api =`${process.env.VUE_APP_APIPATH}/api/user/check`    
-      axios.post(api).then((response) =>{
-        if(response.data.success){
+      const api =`${process.env.VUE_APP_APIPATH}/api/user/check`;
+      axios.post(api).then((res) =>{
+        console.log(res);
+        if(res.data.success){
           next();
         } else{
           next({path:'/login'})

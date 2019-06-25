@@ -41,13 +41,13 @@
                                 <td clas="align-middle text-dark">
                                     {{item.qty}} / {{item.product.unit}}
                                 </td>
-                                <td class="text-right align-middle text-success">NT {{item.product.price}}</td>
+                                <td class="text-right align-middle text-success">NT {{item.product.price | currency}}</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-end align-items-baseline">
                         <span class="pr-3 h6">總計</span>
-                        <span class="text-success h4">NT {{order.total}}</span>
+                        <span class="text-success h4">NT {{order.total | currency}}</span>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     </table>
                     <div class="d-flex justify-content-end align-items-baseline">
                         <button class="btn btn-danger my-2" v-if="!order.is_paid" @click="payOrder(orderId)">確認付款</button>
-                        <router-link to="/store/products" v-else class="btn btn-success my-2">繼續購物</router-link>
+                        <!-- <router-link to="/store/products" v-else class="btn btn-success my-2">繼續購物</router-link> -->
                     </div>
                 </div>
             </div>
@@ -98,36 +98,19 @@
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
     data(){
         return {
             orderId : 0,
-            order:{}
         }
     },
     methods:{
-        getOrder(orderId){
-            const vm = this;
-            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/order/${orderId}`;
-            vm.$http.get(url).then((res) => {
-                vm.order = res.data.order;
-                console.log(vm.order);
-            })
-        },
-        payOrder(orderId){
-            const vm = this;
-            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/pay/${orderId}`;
-            vm.$http.post(url).then((res) => {
-                if(res.data.success){
-                    this.getOrder(orderId);
-                    vm.$router.push(`/checkout/done`);    
-                }
-            })
-        }
+        ...mapActions('orderModules',['getOrder','payOrder']),
     },
     computed:{
         ...mapGetters(['isLoading']),
+        ...mapGetters('orderModules',['order']),
     },
     created(){
         this.orderId = this.$route.params.orderId;

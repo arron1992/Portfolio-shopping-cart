@@ -14,20 +14,16 @@
                     </thead>
                     <tbody class="ad-order-tbody">
                         <tr v-for="item in orders" :key="item.id">
-                            <td class="align-middle">{{item.create_at}}</td>
+                            <td class="align-middle">{{item.create_at | timestamp}}</td>
                             <td class="align-middle">{{item.user.email}}</td>
-                            <!-- <td class="align-middle">{{item.products.product.title}}
-
-                            </td> -->
                             <td class="align-middle">
                                 <ul class="table-ul">
                                     <li v-for="(product, i) in item.products" :key="i">
                                         {{ product.product.title }} 
-                                        <!-- <span class="d-block"> {{ product.qty }}/{{ product.product.unit }}</span> -->
                                     </li>
                                 </ul>
                             </td>
-                            <td class="align-middle text-right">NT {{item.total}}</td>
+                            <td class="align-middle text-right">NT {{item.total |　currency}}</td>
                             <td class="align-middle">
                                 <div class="able" v-if="item.is_paid">Paid</div>
                                 <div class="unable" v-else>Unpaid</div>

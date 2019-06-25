@@ -26,8 +26,8 @@
                                 <div :style="{backgroundImage:`url(${item.image})`}" class="ad-product-img img-thumbnail"></div>
                                 <span>{{item.title}}</span>
                             </td>
-                            <td class="align-middle text-right">{{item.origin_price}}</td>
-                            <td class="align-middle text-right">{{item.price}}</td>
+                            <td class="align-middle text-right">{{item.origin_price | currency}}</td>
+                            <td class="align-middle text-right">{{item.price | currency}}</td>
                             <td class="align-middle">
                                 <span class="able" v-if="item.is_enabled">Published</span>
                                 <span class="unable" v-else>Unublished</span>

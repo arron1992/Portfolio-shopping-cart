@@ -16,8 +16,8 @@
                 <!-- <p class="product-content">{{item.content}}</p> -->
                 <p class="product-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto suscipit sed fugiat tempore harum praesentium doloribus dolor, vel at ipsum!</p>
                 <div class="num-group">
-                    <span class="product-price">NT {{item.price}}</span>
-                    <span class="product-og-price">NT {{item.origin_price}}</span>
+                    <span class="product-price">NT {{item.price | currency}}</span>
+                    <span class="product-og-price">NT {{item.origin_price | currency}}</span>
                     <div class="num-box">
                         <select name="num" id="num" class="num-select" v-model="qtys">
                             <option :value="i" v-for="i in 10" :key="i">選購 {{i}} {{item.unit}}</option>
@@ -35,30 +35,23 @@ export default {
     data(){
         return{
             itemId: '',
-            item : {},
             qtys : 1
         }
     },
     methods:{
-        getProduct(id){
-            const vm = this;
-            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/product/${id}`;       
-            vm.$http.get(url).then((res)=>{
-                if (res.data.success) {                   
-                    vm.item = res.data.product;               
-                }
-            })
-        },
         addToCart(id, qty){
             this.$store.dispatch("cartModules/addToCart",{ id, qty })
-        },     
+        },
+        ...mapActions("itemModules",["getItem"]),
     },
     computed:{
-        ...mapGetters(["isLoading"])
+        ...mapGetters(["isLoading"]),
+        ...mapGetters("itemModules",["item"]),
+
     },
     created(){
         this.itemId = this.$route.params.itemId
-        this.getProduct(this.itemId)
+        this.getItem(this.itemId)
     }
 }
 </script>

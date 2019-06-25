@@ -22,7 +22,7 @@
         <!-- main-product-area -->
         <div class="col-9" style="padding-right:0px;">
             <div class="search-box clear-fix ml-auto">
-            <input type="text" class="search-txt" placeholder="請輸入商品名稱" name="search">
+            <input type="text" class="search-txt" placeholder="請輸入商品名稱" name="search" v-model="keyText" @keyup.enter="findKeyWord()">
             <a href="#" class="search-btn">
                 <i class="fas fa-search"></i>
             </a>
@@ -34,16 +34,16 @@
                 <div class="card">
                     <a href="#" class="card-head"
                         :style="{backgroundImage:`url(${item.image})`}"
-                        @click.prevent="getSingleProduct(item.id)">
+                        @click.prevent="getProduct(item.id)">
                     </a>
                     <div class="card-body">
                         <h5>
                         <span class="badge badge-pill badge-info">{{item.category}}</span>
                         </h5>
                         <a href="#" class="card-title"
-                        @click.prevent="getSingleProduct(item.id)">{{item.title}}</a>
+                        @click.prevent="getProduct(item.id)">{{item.title}}</a>
                         <p class>{{item.description}}</p>
-                        <p class="price">NT {{item.price}}</p>
+                        <p class="price">NT {{item.price | currency}}</p>
                     </div>
                     <div class="card-foot d-flex">
                         <a href="#" class="addToCart" @click.prevent="addToCart(item.id)">加入購物車</a>
@@ -87,14 +87,14 @@ components: {
 data() {
     return {
         keyText: "",
-        currentPage: 0
+        currentPage: 0,
     };
 },
 methods: {
     addToCart(id, qty = 1) {
         this.$store.dispatch("cartModules/addToCart", { id, qty });
     },
-    getSingleProduct(id) {
+    getProduct(id) {
         const vm = this;
         const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/product/${id}`;
 
@@ -114,7 +114,7 @@ computed: {
         let newData = [];
         if (vm.keyText !== "") {
             newData = vm.products.filter(item => {
-                return item.category === vm.keyText;
+                return item.title.toLowerCase().includes(vm.keyText.toLowerCase());
             });
         } else {
             newData = vm.products;
@@ -132,7 +132,7 @@ computed: {
         return pageAry;
         },
         ...mapGetters("productsModules", ["categories", "products"]),
-        ...mapGetters("cartModules", ["CART"]),
+        ...mapGetters("cartModules", ["cart"]),
         ...mapGetters(["isLoading"])
     },
 created() {

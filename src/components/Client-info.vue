@@ -26,7 +26,7 @@
         <div class="row my-4">
             <div class="col-8 client-info">      
                 <h5 class="client-order">訂單資訊</h5>
-                <form @submit.prevent="payOrder()">
+                <form @submit.prevent="submitOrder()">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="client-name">姓名</label>
@@ -78,7 +78,7 @@
                                 </td>
                                 <td class="align-middle">
                                     <span class="cart-title">{{item.product.title}}({{item.qty}})</span> 
-                                    <span class="d-block cart-qty-unit">NT {{item.product.price}}</span> 
+                                    <span class="d-block cart-qty-unit">NT {{item.product.price | currency}}</span> 
                                 </td>
                                 <td class="align-middle">
                                     <a href="#" class="btn btn-icon" @click="removeCart(item.id)">
@@ -91,15 +91,15 @@
                     </div>
                     <div class="client-cost">
                         <span class="d-flex">總計:</span> 
-                        <span class="client-cost-org">NT {{cart.carts.total}}</span>
+                        <span class="client-cost-org">NT {{cart.carts.total | currency}}</span>
                     </div>    
-                    <div class="client-cost" v-if="false"> 
+                    <div class="client-cost" v-if="cart.carts.final_total !== cart.carts.total">
                         <span class="d-flex">折價後: </span> 
-                        <span class="client-cost-dec">NT 666</span>
+                        <span class="client-cost-dec">{{cart.carts.final_total | currency}}</span>
                     </div>
                     <div class="coupon-group">
-                        <input type="text" class="client-coupon" placeholder="請輸入優惠碼">
-                        <a href="#" class="client-coupon-btn">送出</a>
+                        <input type="text" class="client-coupon" placeholder="請輸入優惠碼" v-model="code">
+                        <a href="#" class="client-coupon-btn"  @click.prevent="useCoupon()" @keyup.enter="useCoupon()">使用優惠券</a>
                     </div>
                     <a href="#" class="back-btn" @ckick.prevent="backToIndex">返回購物</a>                   
                 </div>               
@@ -109,10 +109,8 @@
 </template>
 <script>
 import {mapActions,mapGetters} from 'vuex';
-// import StepInfo from './Step-info.vue'
 export default {
     components:{
-        // StepInfo
     },
     data(){
         return {
@@ -125,10 +123,11 @@ export default {
                 },
                 message: ''
             },
+            code : '',
         }
     },
     methods:{
-        payOrder(){
+        submitOrder(){
             const vm = this;
             const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/order`
             const order = vm.form;
@@ -142,7 +141,23 @@ export default {
                 }
             })
         },
-        ...mapActions('cartModules',['getCart']),
+        useCoupon(){
+            const vm = this;
+            const coupon_code = {
+                code : vm.code
+            }
+            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/coupon`
+            vm.$http.post(url, {data : coupon_code}).then((res)=>{
+                console.log(res)
+                if(res.data.success){
+                    this.$store.dispatch('cartModules/getCart');
+                    vm.code = '';
+                } else {
+                    console.log('falis')
+                }
+            })
+        },
+        ...mapActions('cartModules',['getCart','removeCart']),
     },
     computed:{
         ...mapGetters("cartModules", ["cart"]),

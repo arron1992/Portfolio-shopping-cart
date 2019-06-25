@@ -26,7 +26,7 @@
                                 <span class="d-block cart-qty-unit">{{item.qty}} / {{item.product.unit}}</span> 
                             </td>
                             <td class="align-middle cart-price">
-                                NT {{item.product.price}}
+                                NT {{item.product.price | currency}}
                             </td>
                         </tr>          
                     </tbody> 
@@ -35,10 +35,10 @@
                 <div class="cart-modal-footer" v-if="cart.carts.carts.length !== 0">
                     <div class="d-flex total-area">
                         <span class="total-txt text-secondary">總計</span>
-                        <span class="total-price ml-auto">NT {{cart.carts.final_total}}</span>
+                        <span class="total-price ml-auto">NT {{cart.carts.final_total | currency}}</span>
                     </div>  
-                    <router-link class="checkout-btn" to="/checkout">結帳</router-link>
-                    <!-- <a href="#" class="checkout-btn" @click.prevent="goCheckOut()">結帳</a> -->
+                    <button class="btn checkout-btn" @click.prevent="goCheckOut()">結帳</button>
+
                 </div>
             </div>     
         </div>
@@ -53,21 +53,23 @@ export default {
         }
     },
     methods:{
-    goCheckOut(){      
-        this.$router.push(`/checkout`);
-    },
+        goCheckOut(){      
+            this.$router.push(`/checkout`);
+            this.isHide = false;
+        },
         ...mapActions('cartModules',['getCart','removeCart']),
     },
     computed:{
         ...mapGetters('cartModules',['cart']),
     },
-    created(){
-        this.getCart();
-    },
     watch: {
         isHide: function () {
             document.body.style.overflow = this.isHide ? 'hidden' : 'auto'
         }
-    }
+    },
+    created(){
+        this.getCart();
+        document.body.style.overflow = 'auto';
+    },
 }
 </script>
