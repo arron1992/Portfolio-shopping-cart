@@ -1,19 +1,20 @@
 <template>
     <div>
         <Loading :active.sync="isLoading"></Loading>
+        <Alert/>
         <Jumbotron/>
-
-        <div class="row product-group">
+        
         <!-- list-group-area -->
+        <div class="row product-group">
         <div class="col-3" style="padding-left:0px;">
             <ul class="select-list">
                 <li class="select-list-item" 
                 @click.prevent="keyText = ''" 
                 :class="{'active': keyText === ''}">全部甜點</li>
 
-                <li v-for="(item) in categories"
+                <li v-for="(item,i) in categories"
                     class="select-list-item"
-                    :key="item.id"
+                    :key="i"
                     @click.prevent="keyText = item"
                     :class="{'active': item === keyText}">{{item}}</li>
                 </ul>
@@ -80,9 +81,12 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import Jumbotron from '../components/Jumbotron.vue';
+import Alert from '../components/Alert-message.vue';
+
 export default {
 components: {
-    Jumbotron
+    Jumbotron,
+    Alert
 },
 data() {
     return {
@@ -92,21 +96,20 @@ data() {
 },
 methods: {
     addToCart(id, qty = 1) {
-        this.$store.dispatch("cartModules/addToCart", { id, qty });
+        this.$store.dispatch("cartModules/addToCart", { id, qty }); 
     },
     getProduct(id) {
         const vm = this;
         const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/product/${id}`;
 
         vm.$http.get(url).then(res => {
-            console.log(res);
             if (res.data.success) {
                 vm.$router.push(`/store/porduct/${res.data.product.id}`);
             }
         });
     },
     ...mapActions("cartModules", ["getCart"]),
-    ...mapActions("productsModules", ["getProducts"])
+    ...mapActions("productsModules", ["getProducts"]),
 },
 computed: {
     filterData() {

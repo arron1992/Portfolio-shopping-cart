@@ -4,6 +4,7 @@ export default {
     state:{
         products:{},
         pagination:{},
+        uploadFile:[]
     },
     actions:{
         getProducts(context, page=1){
@@ -23,6 +24,17 @@ export default {
                 context.commit('LOADING',false, {root:true});
             })
         },
+        removeMessageWithTiming(context,id){
+            const vm = this;
+            setTimeout(()=>{
+                const uploadImgAry = vm.state.adProductsModules.uploadFile;
+                uploadImgAry.forEach((item,i)=>{
+                    if(item.id === id){
+                        uploadImgAry.splice(i, 1);
+                    }
+                })
+            },5000)
+        }   
     },
     mutations:{
         PRODUCTS(state,payload){
@@ -31,9 +43,17 @@ export default {
         PAGINATION(state,payload){
             state.pagination = payload;
         },
+        UPLOADFILE(state, payload){
+            state.uploadFile.push({
+                status : payload.res.success,
+                messages : payload.res.message,
+                id : payload.id
+            })
+        },
     },
     getters:{
         products : state  => state.products,
         pagination : state => state.pagination,
+        uploadFile : state => state.uploadFile,
     }
 }

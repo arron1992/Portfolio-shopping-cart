@@ -1,0 +1,28 @@
+.footbar {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: #EAF0ED;
+}
+
+.footbar .foobar-icon-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  list-style: none;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+
+.footbar .foobar-icon-list li {
+  padding: 0px 18px 0px 18px;
+}
+
+.footbar .foobar-icon-list li a {
+  color: #3F5D45;
+}
+/*# sourceMappingURL=footbar.css.map */

@@ -18,11 +18,7 @@ export default {
             const api =`${process.env.VUE_APP_APIPATH}/logout`
             vm.$http.post(api).then((response) =>{
                 console.log(response.data)
-                if(response.data.success){
                     vm.$router.push('/store/products')            
-                } else {
-                    console.log('登出失敗')
-                }
             })
         }
     }

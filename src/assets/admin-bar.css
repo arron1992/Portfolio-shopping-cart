@@ -1,0 +1,39 @@
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 27px;
+  background-color: #000;
+}
+
+nav .nav-item {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 30px;
+  height: 96px;
+}
+
+nav .nav-item:nth-child(1) {
+  margin-right: 60px;
+}
+
+nav .nav-item:nth-child(2), nav .nav-item:nth-child(3), nav .nav-item:nth-child(4) {
+  margin-right: 40px;
+  color: #9B9B9B;
+}
+
+nav .nav-item:nth-child(2):focus, nav .nav-item:nth-child(2):hover, nav .nav-item:nth-child(3):focus, nav .nav-item:nth-child(3):hover, nav .nav-item:nth-child(4):focus, nav .nav-item:nth-child(4):hover {
+  color: white;
+  border-bottom: 5px solid #fff;
+}
+
+nav .sign-out {
+  margin-left: auto;
+  color: #fff;
+}
+
+nav .sign-out:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=admin-bar.css.map */

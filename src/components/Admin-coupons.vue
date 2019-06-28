@@ -128,7 +128,7 @@ export default {
         },
         reLoadMethod(page){
             // 接收 Pagination.vue 傳來的 page , 重新渲染頁面
-            this.getOrders(page);
+            this.getCoupons(page);
         },
         ...mapActions("adCouponsModules",["getCoupons","removeCoupon"]),
     },

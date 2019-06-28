@@ -1,7 +1,7 @@
 <template>
     <div>
         <Loading :active.sync="isLoading"></Loading>
-
+        <Alert/>
         <div class="row my-5">
             <div class="col-6 product-img-group">
                 <div class="product-img" :style="{backgroundImage:`url(${item.image})`}">    
@@ -31,7 +31,11 @@
 </template>
 <script>
 import {mapActions, mapGetters} from 'vuex';
+import Alert from '../components/Alert-message.vue';
 export default {
+    components: {
+        Alert
+    },
     data(){
         return{
             itemId: '',
@@ -40,7 +44,7 @@ export default {
     },
     methods:{
         addToCart(id, qty){
-            this.$store.dispatch("cartModules/addToCart",{ id, qty })
+            this.$store.dispatch("cartModules/addToCart", { id, qty });
         },
         ...mapActions("itemModules",["getItem"]),
     },

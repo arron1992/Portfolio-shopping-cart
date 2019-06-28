@@ -1,6 +1,8 @@
 <template>
     <div>
         <loading :active.sync="isLoading"></loading>
+        <Alert/>
+        
         <div class="ad-product">
             <div class="d-flex justify-content-end">
                 <a href="#" class="add-product-btn" @click.prevent="openModal(true)">Add New Product
@@ -125,10 +127,12 @@
 </template>
 <script>
 import Pagination from './Pagination';
+import Alert from '../components/Alert-message.vue';
 import {mapActions, mapGetters} from 'vuex';
 export default {
     components:{
-        Pagination
+        Pagination,
+        Alert
     },
     data(){
         return{
@@ -164,33 +168,40 @@ export default {
             })
         },
         uploadFile(){
-            // 01. 查看 this
-            const vm = this;
-            console.log(this)
+            // 01. 查看 this => console.log(this)
             //02. 找出 upload 的 img
-            const img = vm.$refs.files.files[0];
             //03. 使用 formdata 模擬表單傳送
-            const formData = new FormData;
-            formData.append('file-upload', img); 
             //04. 上傳 formdata
+
+            const vm = this;
+            const img = vm.$refs.files.files[0];
+            const formData = new FormData;
+            formData.append('file-upload', img);            
             const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/upload`
             vm.$http.post(api,formData,{
                 headers : {
                     'Content-type' : 'multipart/form-data'
                 }      
             }).then((res)=>{
-                console.log(res.data)
-                if(res.data){
-                    // vm.tempProduct.image = res.data.imageUrl; => 因為資料結構一開始沒設定好, 所以用 $set 強制綁定確保雙向綁定
-                    vm.$set(vm.tempProduct, 'image', res.data.imageUrl);
+                console.log(res)
+                // vm.tempProduct.image = res.data.imageUrl; => 因為資料結構一開始沒設定好, 所以用 $set 強制綁定確保雙向綁定
+                vm.$set(vm.tempProduct, 'image', res.data.imageUrl);
+
+                // 將 res 傳給 alert-message(res 結果沒有 id 則用 timestamp 做一個配合倒數消失)
+                const id = Math.floor(new Date() / 1000)
+                const imgData = {
+                    id : id,
+                    res : res.data
                 }
+                vm.$store.commit('adProductsModules/UPLOADFILE', imgData);
+                vm.$store.dispatch('adProductsModules/removeMessageWithTiming', id);
             })
         },
         reLoadMethod(page){
             //接收 Pagination.vue 傳來的 page , 重新渲染頁面
             this.getProducts(page);
         },
-        ...mapActions("adProductsModules",["getProducts","removeProduct"])
+        ...mapActions("adProductsModules",["getProducts","removeProduct",])
     },
     computed:{
         ...mapGetters(["isLoading"]),

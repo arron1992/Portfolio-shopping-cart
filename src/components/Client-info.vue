@@ -98,10 +98,10 @@
                         <span class="client-cost-dec">{{cart.carts.final_total | currency}}</span>
                     </div>
                     <div class="coupon-group">
-                        <input type="text" class="client-coupon" placeholder="請輸入優惠碼" v-model="code">
-                        <a href="#" class="client-coupon-btn"  @click.prevent="useCoupon()" @keyup.enter="useCoupon()">使用優惠券</a>
+                        <input type="text" class="client-coupon" placeholder="Your coupon code?" v-model="coupon_code">
+                        <a href="#" class="client-coupon-btn"  @click.prevent="useCoupon(coupon_code), coupon_code=''">使用優惠券</a>
                     </div>
-                    <a href="#" class="back-btn" @ckick.prevent="backToIndex">返回購物</a>                   
+                    <router-link to="/store" class="back-btn">返回購物</router-link>                   
                 </div>               
             </div>
         </div>
@@ -123,7 +123,7 @@ export default {
                 },
                 message: ''
             },
-            code : '',
+            coupon_code : '',
         }
     },
     methods:{
@@ -141,23 +141,10 @@ export default {
                 }
             })
         },
-        useCoupon(){
-            const vm = this;
-            const coupon_code = {
-                code : vm.code
-            }
-            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/coupon`
-            vm.$http.post(url, {data : coupon_code}).then((res)=>{
-                console.log(res)
-                if(res.data.success){
-                    this.$store.dispatch('cartModules/getCart');
-                    vm.code = '';
-                } else {
-                    console.log('falis')
-                }
-            })
+        useCoupon(coupon_code){
+            this.$store.dispatch('cartModules/useCoupon', coupon_code);
         },
-        ...mapActions('cartModules',['getCart','removeCart']),
+        ...mapActions('cartModules',['getCart','removeCart',]),
     },
     computed:{
         ...mapGetters("cartModules", ["cart"]),
