@@ -1,116 +1,102 @@
 <template>
     <div>
         <Loading :active.sync="isLoading"></Loading>
-
-        <!-- step area -->
-        <section class="row justify-content-center">
-            <div class="col-6">
-                <div class="checkout-step d-flex">
-                    <div class="step-box-1">
-                        <span class="step-num step-now">1</span>
-                        <span class="step-text">確認訂單資料</span>
-                    </div>
-                    <div class="step-box-2">
-                        <span class="step-num">2</span>
-                        <span class="step-text">付款確認</span>
-                    </div>
-                    <div class="step-box-3">
-                        <span class="step-num">3</span>
-                        <span class="step-text">結帳完成</span>
-                    </div>
+        <Alert/>
+        <form @submit.prevent="submitOrder()">
+        <div class="row my-5">
+            <!-- form-area -->
+            <div class="col-8 form-area">
+                <div class="coupon-group">
+                    <h3>Have a Coupon?</h3>
+                    <input type="text" class="code-text" placeholder="Your coupon code?" v-model="coupon_code" value="">
+                    <a href="#" class="code-btn"  @click.prevent="useCoupon(coupon_code), coupon_code=''">Apply Coupon</a>
                 </div>
-            </div>
-        </section>
 
-        <!-- main area -->
-        <div class="row my-4">
-            <div class="col-8 client-info">      
-                <h5 class="client-order">訂單資訊</h5>
-                <form @submit.prevent="submitOrder()">
+                <div class="info-group mt-4">
+                    <h3>Customer Info</h3>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="client-name">姓名</label>
-                            <input type="text" v-model="form.user.name" class="form-control client-name" id="client-name" aria-describedby="client-name" placeholder=""
+                        <!-- name -->
+                        <div class="info-group-form col-6">
+                            <input type="text" v-model="form.user.name" placeholder="Name*"
                             name="name" v-validate="'required'"
                             :class="{'is-invalid':errors.has('name')}">
-                            <span v-if="errors.has('name')" class="text-danger">請輸入姓名</span>
+                            <span v-if="errors.has('name')" class="warning-text">請輸入姓名</span>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="client-phone">電話</label>
-                            <input type="tel" v-model="form.user.tel" class="form-control client-phone" id="client-phone" placeholder=""
+                        <!-- phone -->
+                        <div class="info-group-form col-6">
+                            <input type="tel" v-model="form.user.tel" placeholder="Phone Number*"
                             name="tel" v-validate="'required'"
                             :class="{'is-invalid':errors.has('tel')}">
-                            <span v-if="errors.has('tel')" class="text-danger">請輸入電話號碼</span>
+                            <span v-if="errors.has('tel')" class="warning-text">請輸入電話號碼</span>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="client-email">郵箱</label>
-                        <input type="email" v-model="form.user.email" class="form-control client-email" id="client-email" placeholder=""
-                        name="email" v-validate="'required|email'"
-                        :class="{'is-invalid':errors.has('email')}"> 
-                        <span v-if="errors.has('email')" class="text-danger">請輸入電子郵件</span>         
-                    </div>
-                    <div class="form-group">
-                        <label for="client-address">收件地址</label>
-                        <input type="text" v-model="form.user.address" class="form-control client-address" id="client-address" placeholder=""
-                        name="address" v-validate="'required'"
-                        :class="{'is-invalid':errors.has('address')}"> 
-                        <span v-if="errors.has('address')" class="text-danger">請輸入收件地址</span>               
-                    </div>
-                    <div class="form-group">
-                        <label for="client-talk">備註</label>
-                        <small>(選填)</small>
-                        <textarea v-model="form.message" class="form-control" id="client-talk" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn client-btn">前往付款</button>
-                </form>             
+                        <!-- email -->
+                        <div class="info-group-form col-12">
+                            <input type="email" v-model="form.user.email" placeholder="Email address*"
+                            name="email" v-validate="'required|email'"
+                            :class="{'is-invalid':errors.has('email')}"> 
+                            <span v-if="errors.has('email')" class="warning-text">請輸入電子郵件</span>         
+                        </div>
+                        <!-- address -->
+                        <div class="info-group-form col-12">
+                            <input type="text" v-model="form.user.address" placeholder="Address*"
+                            name="address" v-validate="'required'"
+                            :class="{'is-invalid':errors.has('address')}"> 
+                            <span v-if="errors.has('address')" class="warning-text">請輸入收件地址</span>   
+                        </div>
+                        <!-- textarea -->
+                        <div class="info-group-form col-12">
+                            <textarea v-model="form.message" rows="3" placeholder="Special Notes"></textarea>               
+                        </div>
+                    </div><!------ form end ------->
+                </div>
             </div>
-        
-            <div class="col-4 client-cart">
-                <div class="client-list">
-                    <span class="client-list-title">購物清單</span>
-                    <div class="client-scroll">
-                    <table class="table client-table">
-                        <tbody>
-                            <tr v-for="(item, key) in cart.carts.carts" :key="key">
-                                <td class="align-middle">                 
-                                    <div class="client-img" :style="{backgroundImage:`url(${item.product.image})`}"></div>             
-                                </td>
-                                <td class="align-middle">
-                                    <span class="cart-title">{{item.product.title}}({{item.qty}})</span> 
-                                    <span class="d-block cart-qty-unit">NT {{item.product.price | currency}}</span> 
-                                </td>
-                                <td class="align-middle">
-                                    <a href="#" class="btn btn-icon" @click="removeCart(item.id)">
-                                        <i class="far fa-trash-alt btn btn-outline-danger"></i>
-                                    </a>           
-                                </td>
-                            </tr>          
-                        </tbody>
-                    </table>                        
+            
+            <!-- order-area -->
+            <div class="col-4 order-area">
+                <p class="table-title">Order Summary</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Total</th>
+                            <th><i class="fas fa-cog"></i></th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, key) in cart.carts.carts" :key="key">
+                            <td class="align-middle">{{item.product.title}} x {{item.qty}}</td>
+                            <td class="align-middle">{{item.total | currency}}</td>
+                            <td class="align-middle">
+                                <span class="table-cross" @click="removeCart(item.id)">
+                                    <i class="fas fa-ban"></i>
+                                </span>          
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="money-area mt-2">
+                    <span class="code"><i class="fas fa-tag"></i> Coupon Code:「 cart-666 」</span>
+                    <div class="d-flex justify-content-between mt-5">
+                        <strong>Total :</strong>
+                        <span>{{cart.carts.total | currency}}</span>
                     </div>
-                    <div class="client-cost">
-                        <span class="d-flex">總計:</span> 
-                        <span class="client-cost-org">NT {{cart.carts.total | currency}}</span>
-                    </div>    
-                    <div class="client-cost" v-if="cart.carts.final_total !== cart.carts.total">
-                        <span class="d-flex">折價後: </span> 
-                        <span class="client-cost-dec">{{cart.carts.final_total | currency}}</span>
+                    <div class="discouot-group d-flex justify-content-between" v-if="cart.carts.final_total !== cart.carts.total">
+                        <strong>Discount :</strong>
+                        <span>{{cart.carts.final_total | currency}}</span>
                     </div>
-                    <div class="coupon-group">
-                        <input type="text" class="client-coupon" placeholder="Your coupon code?" v-model="coupon_code">
-                        <a href="#" class="client-coupon-btn"  @click.prevent="useCoupon(coupon_code), coupon_code=''">使用優惠券</a>
-                    </div>
-                    <router-link to="/store" class="back-btn">返回購物</router-link>                   
-                </div>               
+                </div>
+                <button type="submit" class="checkout-btn">Pay Order</button>
             </div>
         </div>
+        </form>
     </div>
 </template>
 <script>
 import {mapActions,mapGetters} from 'vuex';
+import Alert from './Alert-message.vue';
 export default {
     components:{
+        Alert
     },
     data(){
         return {

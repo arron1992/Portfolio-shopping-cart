@@ -5,7 +5,8 @@ export default {
         cart : {
             carts: [],
         },
-        cartInfo : []
+        cartInfo : [],
+        couponInfo: []
     },
     actions:{
         addToCart(context, {id, qty}){
@@ -25,7 +26,7 @@ export default {
                     // 01.(提示訊息) commit(INFO) 傳入陣列,並呈現在畫面上
                     context.commit('CARTINFO', res); 
                     // 02.(提示訊息)使用 settimeout 設定 2 秒後消失
-                    context.dispatch('removeMessageWithTiming', res.data.data.id);
+                    context.dispatch('removeMessageWithTimingForCart', res.data.data.id);
                 } 
             })
         },    
@@ -56,17 +57,25 @@ export default {
             context.commit('LOADING', true, { root: true });
             const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/coupon`
             axios.post(url, {data : coupon}).then((res)=>{
+                const id = Math.floor(Date.now() / 1000)
+                const resObj = {
+                    success :  res.data.success,
+                    message: res.data.message,
+                    id : id,
+                }
                 if(res.data.success){
                     context.dispatch('getCart');
+                    context.commit('COUPONINFO', resObj);
                     context.commit('LOADING', false, { root: true });
+                    context.dispatch('removeMessageWithTimingForCoupon', id);
                 } else {
-                    console.log('falis');
-                    this.$store.dispatch('cartModules/getCart');
+                    context.commit('COUPONINFO', resObj);
                     context.commit('LOADING', false, { root: true });
+                    context.dispatch('removeMessageWithTimingForCoupon', id);
                 }
             })
         },
-        removeMessageWithTiming(context,id){
+        removeMessageWithTimingForCart(context,id){
             const vm = this;
             setTimeout(()=>{
                 const cartInfoAry = vm.state.cartModules.cartInfo;
@@ -75,7 +84,18 @@ export default {
                         cartInfoAry.splice(i, 1);
                     }
                 })
-            },5000)
+            },3000)
+        },
+        removeMessageWithTimingForCoupon(context,id){
+            const vm = this;
+            setTimeout(()=>{
+                const couponInfoAry = vm.state.cartModules.couponInfo;
+                couponInfoAry.forEach((item,i)=>{
+                    if(item.id === id){
+                        couponInfoAry.splice(i, 1);
+                    }
+                })
+            },3000)
         }
     },
     mutations:{
@@ -88,12 +108,19 @@ export default {
                 status : payload.data.success,
                 id : payload.data.data.id,
                 qty : payload.data.data.qty,
-                unit : payload.data.data.product.unit
             })
-        }
+        },
+        COUPONINFO(state,payload){
+            state.couponInfo.push({
+                status : payload.success,
+                message : payload.message,
+                id : payload.id,
+            })
+        },
     },
     getters:{
         cart : state => state.cart,
         cartInfo : state => state.cartInfo,
+        couponInfo : state => state.couponInfo,
     }
 }

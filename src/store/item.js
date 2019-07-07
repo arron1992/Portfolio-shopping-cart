@@ -11,6 +11,7 @@ export default {
             axios.get(url).then((res)=>{
                 if (res.data.success) {                   
                     context.commit('ITEM', res.data.product)
+                    console.log(res.data)
                 }
                 context.commit('LOADING',false, {root:true});
             })

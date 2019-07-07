@@ -1,22 +1,29 @@
 <template>
     <div>
-        <div class="nav-bar">
-            <h1><a href="#">甜心電商</a></h1>
-            <ul class="topmenu ml-auto">
+        <nav>
+            <div class="menu-img">
+                <h1><router-link to="/home" class="menu-item">電商</router-link></h1>
+            </div>
+            <ul class="menu ml-auto">
                 <li>
-                    <router-link to="/admin" class="topmenu-item">後台管理</router-link>
+                    <router-link to="/home" class="menu-item">Home</router-link>
+                </li> 
+                <li>
+                    <router-link to="/store/products" class="menu-item">Products</router-link>
                 </li>   
                 <li>
-                    <router-link to="/store/products" class="topmenu-item">產品</router-link>
+                    <router-link to="/admin" class="menu-item">Admin</router-link>
                 </li>
                 <li>
-                    <router-link to="/login" class="topmenu-item">登入</router-link>
+                    <router-link to="/login" class="menu-item">
+                        Sign In
+                    </router-link>
                 </li>
                 <li>
                     <Cart/>
                 </li>
             </ul>
-        </div>
+        </nav>
     </div>
 </template>
 
@@ -27,9 +34,7 @@ export default {
         Cart,
     },
     data(){
-        return {
-
-        }
+        return {}
     },
     methods:{
 

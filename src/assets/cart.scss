@@ -2,16 +2,14 @@
 .cart-icon{
     list-style:none;
     text-decoration: none;
-    color: #3F5D45;
+    color: #fff;
     text-decoration:none;
     font-size: 18px;
-    padding: 37px;
+    padding: 39px;
     letter-spacing: 5px;
-    font-family:Microsoft JhengHei;
+    font-family:$font-family-set;
     position: relative;
     &:hover{       
-        background: #3F5D45;
-        color: #fff;
         cursor: pointer;
     }
     .cart-num{
@@ -19,6 +17,11 @@
         top:23px;
         right:23px;
         letter-spacing: 0px;
+        color:#fff;
+        background-color: $base;
+        &:hover{
+            color:#fff
+        }
     }
 }
 
@@ -32,26 +35,32 @@
     height:100%;
     background-color: rgba(0, 0, 0, 0.3);
     padding:0px 10px;
+    .table td{
+        border :none;
+        padding: 0;
+    }
     .cart-modal-content{
         background-color: #fff;
         position: fixed;
         z-index : 50;
         width: 350px;
         height: auto;
-        right: 63px;
+        right: 93px;
         top: 120px;
-        border: 1px solid  #cccecf;
+        border: 1px solid  $unable;
         border-radius: 3px;
-        padding:10px;
+        padding:15px;
         &:before{
             width:30px;
             height:30px;
             position: absolute;
-            margin-top:-26px;
-            right:30px;
+            margin-top:-31px;
+            right:20px;
             transform: rotate(45deg);
-            border-top: 1px solid #cccecf;
-            border-left: 1px solid #cccecf;
+            border:none;
+            border-left: 1px solid $unable;
+
+
             background: #fff;
             content:'',
         }
@@ -60,10 +69,9 @@
             text-align: center;
             font-size: 18px;
             letter-spacing: 2px;
-            font-family: $font-family-tai;
+            font-family: $font-family-set;
         }
         .cart-menu-scroll{
-            margin: 5px;
             max-height: 30vh;
             overflow-y: auto;
             .cart-info{
@@ -73,62 +81,56 @@
                 font-style: italic;
                 padding-top:40px;
                 padding-bottom:20px;
-                border-top: 1px solid #dee2e6
+                border-top: 1px solid $unable;
+                margin-top: 5px;
             }
-            .btn-icon{
-                font-size: 13px;
-                padding: 4px 8px;
+            .remove-icon{
+                text-decoration: none;
+                color: $unable;
+                font-size: 24px;
+                &:hover{
+                    color: $base;
+                }
             }
             .cart-img{
-                background-position: 50%;
+                background-position: center center;
                 background-size: cover;
                 display: inline-block;
-                height: 35px;
-                width: 35px;
+                height: 120px;
+                width: 120px;
             }
-            .cart-title{
-                font-size: 14px;
-                letter-spacing: 1px;
-                color: $gray-700;
+            span{
+                font-size: 20px;
+                font-family: $font-family-set;
             }
-            .cart-qty-unit{
-                font-size: 12px;
-                color: #17a2b8;
-            }
-            .cart-price{
-                font-size: 18px;
-                color: $green
-            } 
         }
         .cart-modal-footer{
             .total-area{
                 padding:0px 10px 10px 10px;
-                .total-txt{
-                    font-size: 20px;
-                    letter-spacing: 3px;
-                }
-                .total-price{
-                    color: #28a745;
-                    font-size: 20px;
+                span{
+                    font-family: $font-family-set;
+                    font-weight: bold;
+                    font-size: 24px;
+                    padding-top:5px;
                 }
             }         
             .checkout-btn{
-                border-radius: 30px;
                 letter-spacing: 3px;
                 margin-bottom: 5px;
                 width: 100%;
                 display: block;
-                background-color: $second;
-                color: $main;
+                background-color: $base;
+                color: #fff;
                 text-align: center;
                 text-decoration: none;
                 font-size: 16px;
                 font-weight: 800;
                 cursor: pointer;
                 padding: 5px;
+                font-family: $font-family-set;
                 &:hover{
-                    background-color: $main;
-                    color: $second;
+                    background-color: $base;
+                    color: #000;
                 }
             }
         }

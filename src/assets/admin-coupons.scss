@@ -10,7 +10,7 @@
         width:216px;
         text-align: center;
         border-radius: 5px;
-        margin-bottom:15px;
+        margin-top:15px;
         font-family: monospace;
     }
 }
@@ -23,43 +23,43 @@
     }
     .ad-coupon-tbody{
         font-family: "HelveticaNeue";
-        font-size: 18px;
+        font-size: $font-span;
         .table-ul{
             list-style-type: none;
             margin:10px 0px;
             padding-inline-start: 0px;
         }
         .able{
-            background-color: #7ED321;
+            background-color: $main;
         }
         .unable{
-            background-color: #9B9B9B;
+            background-color: $unable;
         }
         .able, .unable, .edit-btn, .remove-btn{
             padding:10px 20px;
             border-radius: 5px;
             font-size: 18px;
-            color: white;
+            color: #fff;
             letter-spacing: 2px;
             text-decoration: none;    
             text-align: center;
             width:100px;
         }
         .edit-btn{
-            border:1px $five solid;
+            border:1px $title solid;
             margin-right: 15px;
             color:#000;
             &:hover{
-                background-color: $five;
+                background-color: $title;
                 color:#fff
             }
         }
         .remove-btn{
-            border:1px $four solid;
+            border:1px $warning solid;
             margin-right: 15px;
             color:#000;
             &:hover{
-                background-color: $four;
+                background-color: $warning;
                 color:#fff
             } 
         }
@@ -83,7 +83,7 @@ body{
             height:auto; 
             text-transform:capitalize;
             .modal-head{
-                background-color: #7ED321;
+                background-color: $main;
                 color:#fff;
                 position: relative;
                 height:64px;
@@ -124,7 +124,7 @@ body{
                 .confirm-btn{
                     padding: 10px;
                     margin-top: 20px;
-                    background-color: #7ED321;
+                    background-color: $main;
                     color : #fff;
                     text-align: center;
                     text-decoration: none;

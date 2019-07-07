@@ -1,98 +1,110 @@
-/* product-img-group */
-.product-img-group{
-    font-family: $font-family-tai;
-    .product-img{
-        height: 450px;
-        width: auto;
-        background-size: cover;
-        background-position: center center; 
-        margin: 0 auto;
-    }
-}
 
-/* product-txt-group  */
-.product-txt-group{
-    .product-title{
-        color: $main;
-        font-size: 26px;
-        letter-spacing: 1px;
-        margin-top: 30px;
-        padding-bottom: 30px;
-        border-bottom: $second 1px solid;
-        font-family: $font-family-tai;
-    }
-    .product-txt{
-        font-size: 16px;
-        color : #8dce4e
-    }
-    .product-detail{
-        font-size: 16px;
-        font-family: $font-family-tai;
-    }
-    .num-group{
-        position: absolute;
-        bottom:0;
-        width:100%;
-        .product-price{
-            font-size: 40px;
-            margin-right: 24px;
+.product-group{
+    margin: 50px 0px;
+
+    //product-img-group 
+    .product-img-group{
+        font-family: $font-family-set;
+        padding-left: 0;
+        .product-img{
+            height: 350px;
+            background-size: cover;
+            background-position: center center; 
+            margin: 0 auto;
         }
-        .product-og-price{
-            font-size: 24px;
-            text-decoration:line-through;
+    }
+
+    //product-txt-group 
+    .product-txt-group{
+        font-family: $font-family-set;
+        .product-title{
+            font-size: $font-title;
+            font-family: $font-family-title;
+            line-height:1;
+            font-weight: 900;
         }
-        .num-box{
-            position: relative;
-            display: flex;
-            margin-top: 10px;
-            &:before{
-                content: "\f218";
-                font-weight: 800;
-                font-family: "Font Awesome 5 Free"; 
-                top:0;
-                left:0;
-                position: absolute;
-                display: inline-block;
-                line-height: 50px;
+        .badge-color{
+            background-color: $second;
+            color:#fff;
+        }
+    }
+
+    //product-btn-group  
+    .product-btn-group{
+        border: 1px solid $unable;
+        padding:30px 20px;
+        margin-right:0px;
+        .price{
+            font-size: 3em;
+            font-weight:bolder;
+        }
+        .qty-group{
+            p{
+                margin-top: 20px;
+                font-weight: bolder;
+            }
+            .select{
+                width:100%;
                 text-align: center;
-                width:50px;
-                height: 50px;
-                color: white;  
-                background-color: $main; 
+                font-family: 'Open Sans', sans-serif;
+                border: 2px solid #EEE;
+                padding: 5% 41%;
+                font-size: 1em;
                 outline: none;
-                cursor: pointer; 
             }
-            select{
-                appearance: button;
-                width:45%;
-                height:50px;
-                text-align-last: center;
-                font-size: 20px;         
-                color: $main;
-                text-indent: 55px;
-                option{
-                    text-align: center;
-                }
-            }           
-            .num-btn{
-                margin:0;
+            
+        }
+        .addTocart {
+            border:none;
+            outline: none;
+            position: relative;
+            display: block;
+            background:#E25050;
+            width: 100%;
+            margin-top: 40px;
+            padding: 10px;
+            &:hover {
+                background: #303030;
+                background-position: 0 0;
+            }
+            span{
+                font-weight: 900;
+                font-size: 20px;
+                line-height: 22px;
+                padding: 12px 5px 14px 60px;
+                color: #FFF;
                 display: block;
-                width: 30%;
-                height:50px;
-                padding:10px;
-                text-align: center;
-                background-color: $four;
-                color: #fff;
-                text-decoration: none;
-                font-size: 18px;
-                border-radius: 5px;
-                letter-spacing: 2px;
-                margin-left: 105px;
-                &:hover{
-                    color: #fff;
-                    background-color: $four;
-                }
             }
-        }      
+            &::before {
+                content: "";
+                background: url(./assets/image/shopping-cart.png) no-repeat center center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                color: #FFF;
+                font-size: 25px;
+                z-index: 2;
+                width: 50px;
+                border-right: 1px solid #fff;
+            }
+        }
+    }
+    .des-area{
+        font-size: $font-title;
+        font-family: $font-family-title;
+    }
+    .page-back{
+        text-decoration: none;
+        color :#fff;
+        padding: 7px;
+        background-color: $base;
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        &:hover{
+            background-color: #000;
+        }
     }
 }

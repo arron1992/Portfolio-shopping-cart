@@ -4,8 +4,8 @@ nav {
     background-color: #000;
     .nav-item{
         text-decoration: none;
-        color: white;
-        font-size: 20px;
+        color: #fff;
+        font-size: $font-span;
         padding:30px;
         height:96px;
     }
@@ -14,11 +14,17 @@ nav {
     }
     .nav-item:nth-child(2),.nav-item:nth-child(3),.nav-item:nth-child(4){
         margin-right: 40px;
-        color:#9B9B9B;
-        &:focus, &:hover{
-            color: white;
-            border-bottom:5px solid #fff;
+        color:$unable;
+        font-weight: 900;
+        &:hover{
+            color: #fff;
         }
+    }
+    .nav-item:focus, .nav-item.active,
+    .nav-item:focus, .nav-item.active,
+    .nav-item:focus, .nav-item.active {
+        color: #fff;
+        border-bottom:5px solid #fff;
     }
     .sign-out{
         margin-left:auto;

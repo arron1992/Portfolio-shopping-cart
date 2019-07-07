@@ -9,6 +9,11 @@ export default new Router({
       redirect : '/login'
     },
     {
+      path: '/home',
+      name: 'home',
+      component: () => import('./views/Home.vue')
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('./views/LoginPage.vue')
@@ -45,11 +50,6 @@ export default new Router({
           name: 'client-order',
           component: () => import('./components/Client-order.vue')
         },
-        {
-          path: 'done',
-          name: 'client-done',
-          component: () => import('./components/Client-done.vue')
-        }
       ]
     },
     {

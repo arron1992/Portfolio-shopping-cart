@@ -26,7 +26,7 @@
                             <td class="align-middle">{{item.title}}</td>
                             <td class="align-middle">{{item.code}}</td>
                             <td class="align-middle">{{item.percent}} %</td>
-                            <td class="align-middle">{{item.v_due_date}}</td>
+                            <td class="align-middle">{{item.due_date}}</td>
                             <td class="align-middle">
                                 <span class="able" v-if="item.is_enabled">Enabled</span>
                                 <span class="unable" v-else>Unabled</span>
@@ -101,10 +101,10 @@ export default {
     methods:{
         openModal(isNew , item){
             if(isNew){
-                this.tempProduct = {}
+                this.tempCoupon = {}
                 this.isNew = true
             } else {
-                this.tempProduct = this.tempProduct = Object.assign({}, item)
+                this.tempCoupon = Object.assign({}, item)
                 this.isNew = false
             }
             this.isHide = true;
@@ -118,7 +118,7 @@ export default {
             let methods = 'post';
 
             if(!vm.isNew){
-                api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/coupon/${vm.tempProduct.id}` 
+                api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/coupon/${vm.tempCoupon.id}` 
                 methods = 'put';
             }    
             vm.$http[methods](api, {data: vm.tempCoupon}).then((res) => {

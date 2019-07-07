@@ -46,7 +46,7 @@ export default new Vuex.Store({
                         signinAry.splice(i, 1);
                     }
                 })
-            },5000)
+            },3000)
         }
     },
     mutations:{

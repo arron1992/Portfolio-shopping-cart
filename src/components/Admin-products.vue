@@ -1,8 +1,7 @@
 <template>
     <div>
         <loading :active.sync="isLoading"></loading>
-        <Alert/>
-        
+        <Alert></Alert>
         <div class="ad-product">
             <div class="d-flex justify-content-end">
                 <a href="#" class="add-product-btn" @click.prevent="openModal(true)">Add New Product
@@ -187,13 +186,12 @@ export default {
                 // vm.tempProduct.image = res.data.imageUrl; => 因為資料結構一開始沒設定好, 所以用 $set 強制綁定確保雙向綁定
                 vm.$set(vm.tempProduct, 'image', res.data.imageUrl);
 
-                // 將 res 傳給 alert-message(res 結果沒有 id 則用 timestamp 做一個配合倒數消失)
                 const id = Math.floor(new Date() / 1000)
-                const imgData = {
+                const imgObj = {
                     id : id,
                     res : res.data
                 }
-                vm.$store.commit('adProductsModules/UPLOADFILE', imgData);
+                vm.$store.commit('adProductsModules/UPLOADFILE', imgObj);
                 vm.$store.dispatch('adProductsModules/removeMessageWithTiming', id);
             })
         },

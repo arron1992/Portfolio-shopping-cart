@@ -29,6 +29,7 @@ axios.defaults.withCredentials = true;
 
 // '檢查用戶是否仍持續登入' => 驗證登入成功後即切換網址
 router.beforeEach((to, from, next) => {
+  console.log(to)
   if(to.meta.requiresAuth){
       const api =`${process.env.VUE_APP_APIPATH}/api/user/check`;
       axios.post(api).then((res) =>{

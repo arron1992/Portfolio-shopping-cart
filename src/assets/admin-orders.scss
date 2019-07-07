@@ -1,12 +1,12 @@
 .table{
     .ad-order-thead{
         font-family: "HelveticaNeue-Bold";
-        font-size: 20px;
+        font-size: $font-title;
         color: #000000;
     }
     .ad-order-tbody{
         font-family: "HelveticaNeue";
-        font-size: 18px;
+        font-size: $font-span;
         .table-ul{
             list-style-type: none;
             margin:10px 0px;
@@ -14,11 +14,11 @@
         }
         .able{
             display: block;
-            background-color: #F5A623;
+            background-color: $able;
             width:100%;
         }
         .unable{
-            background-color: #9B9B9B;
+            background-color: $unable;
             display: block;
         }
         .able, .unable {

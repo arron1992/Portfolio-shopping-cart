@@ -1,0 +1,76 @@
+.alert{
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+    border:0;
+    .cart-message-box, .sign-message-box, 
+    .coupon-message-box, .upload-message-box{
+        position: relative;
+        display: inline-block;
+        padding: 20px;
+        position: fixed;
+        right:5%;
+        top:5%;
+    }
+    .cart-message-x, .sign-message-x, 
+    .coupon-message-x, .upload-message-x{
+        color:#fff;
+        position: absolute;
+        top:17%;
+        right:13%;
+        font-size: 16px;
+        cursor: pointer;
+        transform: rotate(45deg);
+        &:hover{
+            color:#000;
+        }
+    }
+    .cart-message-content, .sign-message-content, 
+    .coupon-message-content, .upload-message-content{
+        padding: 20px;
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+    .alert-false{
+        background-color: $base;
+    }
+    .alert-true{
+        background-color: $second;
+    }
+
+    // Add to Cart
+    .cart-message-box{
+        .cart-message-x{
+            top:12%;
+            right:12%;
+        }
+        .cart-message-content{
+            padding: 0;
+            background-color: #eee;
+            .cart-message-title{
+                background-color: $base;
+                padding: 10px 20px 10px 20px;
+                margin-bottom: 0;
+            }
+            .cart-message-x{
+                top:17%;
+                right:15%;
+            }
+            span, strong{
+                padding: 15px 20px 15px 20px;
+            }
+        }
+    }
+
+    // Use Coupon
+    .coupon-message-x{
+        top:17%;
+        right:12%
+    }
+
+    // Login 
+    .sign-message-x{
+        top:17%;
+        right:15%
+    }
+}

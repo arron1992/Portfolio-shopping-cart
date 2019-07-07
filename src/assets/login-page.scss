@@ -1,15 +1,16 @@
 
 .dialog-content{
     width:450px;
-    border: solid $second 1px;
+    border: solid #ccc 1px;
     border-radius: 5px;
-    margin: 40px auto;
-    padding:20px;
-    box-shadow: 2px 2px 2px $second;
+    margin: 0 auto;
+    transform: translateY(25%);
+    padding:15px;
+    box-shadow: 1px 1px 1px $unable;
+    font-family: $font-family-set;
     .dialog-text{
         margin-bottom:25px;
             text-align: center;
-            font-family: $font-family-tai;
         }
     input[type="email"], input[type="password"]{
         padding:10px;
@@ -19,15 +20,13 @@
         width: 100%;
         padding: 10px;
         display: block;
-        background-color: $second;
-        color: $main;
+        background-color: $base;
+        color: #000;
         text-align: center;
         text-decoration: none;
-        border-radius: 40px;
-        font-size: 16px;
+        font-size: 20px;
         &:hover{
-            background-color: $main;
-            color: $second;
+            color: #fff;
         }
     }
 }

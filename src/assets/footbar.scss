@@ -1,19 +1,68 @@
-.footbar{
-    width:100%;
-    padding:20px;
-    text-align: center;
-    background-color: #EAF0ED;
-    .foobar-icon-list{
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-        list-style: none;
-        padding-inline-start: 0px;
-        li{
-            padding:0px 18px 0px 18px;
-            a{
-                color : #3F5D45;
+footer{
+    background-color: #333;
+    display: flex;
+    color: #fff;
+    padding: 60px 25px 30px 25px;
+    .footer-box{
+        .footer-title{
+            font-family: inherit;;
+            margin-bottom: 20px;
+            font-size: $font-title;
+            font-weight: 700;
+        }
+        ul{
+            padding: 0;
+            li{
+                list-style: none;              
+            }
+        }
+        .footer-link{
+            color: $unable;
+            display: block;
+            text-decoration: none;
+            font-size: $font-span;
+            margin-bottom: 10px;
+            &:hover{
+                color:#fff
+            }
+        }
+        .icon-group{
+            display: flex;
+            justify-content: left;
+            text-decoration: none;
+            list-style: none;
+            padding-inline-start: 0px;
+            li{
+                padding:0px 25px 20px 0px;
+                a{
+                    color: $unable;
+                    &:hover{
+                        color : #fff;
+                    }
+                }
+            }
+        }
+        form {
+            input[type=submit], input[type=text]{
+                border:none;
+                padding: 10px;
+                font-size: 14px;
+            }
+            input[type=submit]{
+                background-color: $warning;
+                color:#fff;
+                font-size: 14px;
+                font-weight: 900;
+                &:hover{
+                    color:#000
+                }
             }
         }
     }
-} 
+    .copright{
+        display: block;
+        // margin: 30px 0px 0px 0px;
+        margin: 10px auto 0 auto;
+        font-size: 16px;
+    }
+}

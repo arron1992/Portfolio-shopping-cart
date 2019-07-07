@@ -2,28 +2,41 @@
     <div>
         <Loading :active.sync="isLoading"></Loading>
         <Alert/>
-        <div class="row my-5">
-            <div class="col-6 product-img-group">
+        <div class="row product-group">
+            <div class="col-3 product-img-group">
+                <router-link to="/store/products" class="page-back mb-1 mt-0">
+                    <i class="fas fa-chevron-left mr-2"></i>Back to Products
+                </router-link>
                 <div class="product-img" :style="{backgroundImage:`url(${item.image})`}">    
                 </div>
             </div>
 
             <div class="col-6 product-txt-group">
-                <h5><span class="badge badge-warning text-white">{{item.category}}</span></h5>
-                <p class="product-title tetx-info">{{item.title}}</p>
-                <br/>
-                <p class="product-txt">【產品說明】</p>
-                <!-- <p class="product-content">{{item.content}}</p> -->
-                <p class="product-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto suscipit sed fugiat tempore harum praesentium doloribus dolor, vel at ipsum!</p>
-                <div class="num-group">
-                    <span class="product-price">NT {{item.price | currency}}</span>
-                    <span class="product-og-price">NT {{item.origin_price | currency}}</span>
-                    <div class="num-box">
-                        <select name="num" id="num" class="num-select" v-model="qtys">
-                            <option :value="i" v-for="i in 10" :key="i">選購 {{i}} {{item.unit}}</option>
-                        </select>
-                        <a href="#" class="num-btn" @click.prevent="addToCart(itemId, qtys)">放入購物車</a>
-                    </div>                                      
+                <h3 class="product-title">{{item.title}}</h3>
+                <p class="product-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore sapiente fugiat distinctio facilis itaque doloribus ex assumenda recusandae dicta obcaecati eos nobis nisi nulla error quidem suscipit repellendus accusantium officia, quod at cupiditate corporis exercitationem! Odit eos natus iure saepe, sapiente quis commodi voluptates dolores accusamus vero dignissimos ipsa error.</p>
+                <div class="d-flex">
+                    <h5><span class="badge badge-pill badge-color mr-2">#{{item.category}}</span></h5>
+                    <h5><span class="badge badge-pill badge-color" v-if="item.price">#On Sale</span></h5>
+                </div>
+            </div>
+            <div class="col-3 product-btn-group">
+                <span class="price">{{item.price | currency}}</span>
+                <div class="qty-group">
+                    <p>QUANTITY:</p>
+                    <select name="qty" id="qty" v-model="qtys" class="select">
+                        <option :value="i" v-for="i in 10" :key="i">{{i}}</option>
+                    </select>
+                </div>
+                <button class="addTocart" type="submit" name="submit" @click.prevent="addToCart(itemId, qtys)">
+                    <span>Add To Cart</span>
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <div class="d-flex">
+                        <span class="des-area mr-auto">DESCRIPTION</span>
+                    </div>     
+                    <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero atque culpa fugit debitis. Omnis quis cumque praesentium sit quae voluptatum veritatis et, consequuntur repellat blanditiis minus libero sapiente tenetur, commodi deserunt ratione autem sed hic quisquam fuga aut illo cum? Ab iure laboriosam corrupti, magni eligendi in modi maxime ad qui itaque sed voluptates aliquid odit recusandae nam autem magnam consequuntur, nobis provident placeat quidem natus fugit. Modi minima architecto ex nesciunt alias voluptatum? Autem voluptas dignissimos explicabo laborum fuga adipisci aliquid sunt. Cupiditate maiores iure reiciendis unde alias repellendus eveniet temporibus dolor. Dicta architecto recusandae, nostrum adipisci quia enim.</p>
                 </div>
             </div>
         </div>

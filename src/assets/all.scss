@@ -2,25 +2,25 @@
 @import "./helpers/_variables.scss";
 @import "~bootstrap/scss/bootstrap";
 
-/*--- lay out ---*/
-@import "./headbar.scss";
-@import "./footbar.scss";
+/* mixin */
+@import "./helpers/base";
+@import "./helpers/mixin";
 
-/* for components*/
+/*--- components ---*/
+@import "./home.scss";
 @import "./products.scss";
 @import "./login-page.scss";
 @import "./cart.scss";
 @import "./item.scss";
 @import "./client-info.scss";
 @import "./client-order.scss";
-@import "./client-done.scss";
-
-/* For admin page */
 @import "./admin-bar.scss";
 @import "./admin-orders.scss";
 @import "./admin-coupons.scss";
 @import "./admin-products.scss";
+@import "./alert-message.scss";
 
-
-
+/*--- lay out ---*/
+@import "./headbar.scss";
+@import "./footbar.scss";
 
