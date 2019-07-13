@@ -4,48 +4,49 @@
         <Alert/>
         
         <!-- list-group-area -->
-        <div class="row product-group">
-        <div class="col-12">
-            <ul class="select-list">
-                <li class="select-list-item" 
-                @click.prevent="keyText = ''" 
-                :class="{'active': keyText === ''}">全部</li>
+        <div class="row products-group">
+            <div class="col-12">
+                <ul class="select-list">
+                    <li class="select-list-item" 
+                    @click.prevent="keyText = ''" 
+                    :class="{'active': keyText === ''}">全部</li>
 
-                <li v-for="(item,i) in categories"
-                    class="select-list-item"
-                    :key="i"
-                    @click.prevent="keyText = item"
-                    :class="{'active': item === keyText}">{{item}}
-                </li>
-            </ul>
-        </div>
+                    <li v-for="(item,i) in categories "
+                        class="select-list-item"
+                        :key="i"
+                        @click.prevent="keyText = item"
+                        :class="{'active': item === keyText}">{{item}}
+                    </li>
+                </ul>
+            </div>
 
-        <!-- main-product-area -->
-        <div class="col-12" style="padding-right:0px;">
-            <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12 pl-0"
-                v-for="item in filterData[currentPage]"
-                :key="item.id">
-                <div class="card flex-column">
-                    <div class="card-container">
-                        <a href="#" class="card-img" 
-                            :style="{backgroundImage:`url(${item.image})`}"
-                            @click.prevent="getProduct(item.id)">
-                        </a>
-                        <a href="#" class="buyit"  @click.prevent="addToCart(item.id)">ADD TO CART</a>
-                        <span class="onsale-text" v-if="item.price < item.origin_price">On sale</span>
-                    </div>
-                    <div class="card-foot">       
-                        <span href="#" class="card-title" @click.prevent="">{{item.title}}</span> 
-                        <div class="price-group">
-                            <span class="price-discount">{{item.price | currency}} </span>
-                            <span class="price-origin">{{item.origin_price | currency}}</span>
-                        </div>         
+            <!-- main-product-area -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"
+                        v-for="item in filterData[currentPage]"
+                        :key="item.id">
+                        <div class="card flex-column">
+                            <div class="card-container">
+                                <a href="#" class="card-img" 
+                                    :style="{backgroundImage:`url(${item.image})`}"
+                                    @click.prevent="getProduct(item.id)">
+                                </a>
+                                <a href="#" class="buyit"  @click.prevent="addToCart(item.id)">ADD TO CART</a>
+                                <span class="onsale-text" v-if="item.price < item.origin_price">On sale</span>
+                            </div>
+                            <div class="card-foot">       
+                                <span href="#" class="card-title" @click.prevent="">{{item.title}}</span> 
+                                <div class="price-group">
+                                    <span class="price-discount">{{item.price | currency}} </span>
+                                    <span class="price-origin">{{item.origin_price | currency}}</span>
+                                </div>         
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-    
+            
             <!-- pagination -->
             <ul class="page-list">
                 <li>
@@ -66,8 +67,6 @@
                     @click.prevent="currentPage = currentPage + 1">&raquo;</a>
                 </li>
             </ul>
-            <div class="clearfix"></div>
-        </div>
         </div>
     </div>
 </template>

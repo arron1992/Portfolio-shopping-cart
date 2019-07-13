@@ -10,7 +10,6 @@ export default {
             const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/products/all`
             context.commit('LOADING', true , {root:true} )
             axios.get(url).then((res)=>{
-                // console.log(res);
                 context.commit('PRODUCTS',res.data.products);
                 context.commit('CATEGORIES',res.data.products)
                 context.commit('LOADING', false, { root: true });

@@ -1,25 +1,22 @@
 <template>
     <div>
         <loading :active.sync="isLoading"></loading>
-        <div class="ad-coupon">
-            <div class="d-flex justify-content-end">
-                <a href="#" class="add-coupon-btn" @click.prevent="openModal(true)">Add New Coupon
-                    <i class="fas fa-plus"></i>
-                </a>                     
-            </div>
-        </div>
-
+        
         <!-- Table Area-->
-        <div class="row">
-            <div class="col-12 mt-3">
+        <div class="row m-0">
+            <a href="#" class="add-coupon-btn text-decoration-none text-white" @click.prevent="openModal(true)">Add New Coupon
+                <i class="fas fa-plus"></i>
+            </a> 
+
+            <div class="col-12 coupons-table">
                 <table class="table table-hover table-bordered">
                     <thead class="ad-coupon-thead">
-                        <th width="250">Coupon Name</th>
-                        <th width="200">Coupon Code</th>
-                        <th width="200">Discount Percent</th>
-                        <th width="200">Expiration date</th>
-                        <th width="">Is Enabled?</th>
-                        <th width="">Edit</th>
+                        <th>Coupon Name</th>
+                        <th>Coupon Code</th>
+                        <th>Discount Percent</th>
+                        <th>Expiration date</th>
+                        <th>Is Enabled?</th>
+                        <th>Edit</th>
                     </thead>
                     <tbody class="ad-coupon-tbody">
                         <tr v-for="item in coupons" :key="item.id">
@@ -39,10 +36,13 @@
                     </tbody>
                 </table>
             </div> 
-            
-            <!-- Coupon Modal-->
-            <div class="ad-coupon-modal" v-if="isHide" @click.self="closeModal()">
-                
+        </div>
+
+        <!-- pagination -->       
+        <Pagination :page-data="pagination" v-on:bondMethod="reLoadMethod"></Pagination>
+
+        <!-- Coupon Modal-->
+        <div class="ad-coupon-modal" v-if="isHide" @click.self="closeModal()">        
             <div class="modal-content">
                 <div class="modal-head">
                     <p class="modal-text">Coupon Admin</p>
@@ -53,16 +53,16 @@
                         <div class="col-12 p-0">
                             <label for="title">coupon title</label>
                             <input type="text" v-model="tempCoupon.title" name="title" id="title" class="coupon-title" placeholder="Plz input your coupon title">
-                            
+                                
                             <label for="code">discount code</label>
                             <input type="text" v-model="tempCoupon.code" name="code" id="code" placeholder="Plz input your coupon code">
-                            
+                                
                             <label for="discount">discount percent</label>
                             <input type="number" v-model="tempCoupon.percent"  name="discount" id="discount" placeholder="Plz input your coupon discount">
-                            
+                                
                             <label for="date">Due date</label>
                             <input type="date" v-model="tempCoupon.due_date" name="date" id="datetime">
-                        
+                            
                             <label for="check" class="d-block">Is Enabled?</label>
                             <input type="checkbox" v-model="tempCoupon.is_enabled" 
                             :true-value="1" :false-value="0" name="check" id="check" value="check">
@@ -71,10 +71,6 @@
                     </div>
                 </form>
             </div> 
-        </div>
-
-        <!-- pagination -->       
-        <Pagination :page-data="pagination" v-on:bondMethod="reLoadMethod"></Pagination>
         </div>
     </div>
 </template>
@@ -122,7 +118,6 @@ export default {
                 methods = 'put';
             }    
             vm.$http[methods](api, {data: vm.tempCoupon}).then((res) => {
-                console.log(vm.tempCoupon);
                 vm.getCoupons();
             })
         },

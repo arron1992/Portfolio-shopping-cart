@@ -4,7 +4,7 @@ import axios from 'axios';
 import router from '../router'
 
 import productsModules from './products';
-import itemModules from './item';
+import productModules from './product';
 import cartModules from './cart';
 import orderModules from './order';
 import adOrdersModules from './admin-orders';
@@ -25,7 +25,6 @@ export default new Vuex.Store({
         signIn(context, user){
             const api =`${process.env.VUE_APP_APIPATH}/admin/signin`     
             axios.post(api, user).then((res) =>{
-                console.log(res)
                 if(res.data.success){
                     context.commit('SIGNIN', res.data);
                     router.push('/store/products');
@@ -38,7 +37,6 @@ export default new Vuex.Store({
         },
         removeMessageWithTiming(context,id){
             const vm = this;
-            console.log(this)
             setTimeout(()=>{
                 const signinAry = vm.state.signIn;
                 signinAry.forEach((item,i)=>{
@@ -67,7 +65,7 @@ export default new Vuex.Store({
     },
     modules:{
         productsModules,
-        itemModules,
+        productModules,
         cartModules,
         orderModules,
         adOrdersModules,

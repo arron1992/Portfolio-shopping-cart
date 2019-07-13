@@ -2,41 +2,47 @@
     <div class="order">
         <Loading :active.sync="isLoading"></Loading>
         <div v-if="order.id">
-            <div class="row d-flex justify-content-center mt-3">
-                <div class="col-11">
-                    <!-- <i class="fas fa-file-invoice-dollar mr-2"></i>
-                    <span class="h6 my-2 d-inline-block h6">Product Details</span> -->
-                    <table class="table table-striped table-light shadow-sm">
+            <div class="row table-set">
+                <div class="col-12 table-res">
+                    <table class="table table-striped table-light shadow-sm table-pos">
                         <thead>
                             <tr>
-                                <th colspan="2">
-                                    <i class="fas fa-file-invoice-dollar mr-2"></i>Product Details
+                                <th>
+                                    <i class="fas fa-file-invoice-dollar mr-1"></i>
+                                    Product Details
                                 </th>
+                                <th class="pr-5">Title</th>
                                 <th>Quantity</th>
                                 <th>Amount</th>
                             </tr>
                         </thead>
                         <tbody class="font-weight-bold">
                             <tr v-for="item in order.products" :key="item.id">
-                                <td class="order-table-img align-middle m-2" :style="{backgroundImage:`url(${item.product.image})`}"></td>
+                                <td class="order-table-img" :style="{backgroundImage:`url(${item.product.image})`}"></td>
                                 <td class="align-middle">{{item.product.title}}</td>
-                                <td clas="align-middle text-dark text-center">
+                                <td clas="align-middle text-dark text-right">
                                     X {{item.qty}}
                                 </td>
                                 <td class="text-right align-middle">{{item.product.price | currency}}</td>
                             </tr>
+                            <tr>
+                                <td class="align-items-baseline text-right" colspan="4">
+                                    <span class="pr-3 h6">Final Total</span>
+                                    <span class="h4">{{order.total | currency}}</span>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-end align-items-baseline">
+                    <!-- <div class="d-flex justify-content-end align-items-baseline">
                         <span class="pr-3 h6">Final Total</span>
                         <span class="h4">{{order.total | currency}}</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <br/>
 
-            <div class="row d-flex justify-content-center text-secondary ">
-                <div class="col-11">
+            <div class="row text-secondary table-set">
+                <div class="col-12 table-res">
                     <table class="table table-striped table-light shadow-sm">
                         <thead>
                             <tr>
@@ -70,9 +76,9 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn pay-order" v-if="!order.is_paid" @click="payOrder(orderId)">Check Out</button>
-                    <router-link to="/store/products" v-if="order.is_paid" class="payed">Keep Shopping!</router-link>
                 </div>
+                <button class="btn pay-order" v-if="!order.is_paid" @click="payOrder(orderId)">Check Out</button>
+                <router-link to="/store/products" v-if="order.is_paid" class="payed">Keep Shopping!</router-link>
             </div>
         </div>
         <br/>    

@@ -1,15 +1,25 @@
-.product-group{
-    margin: 15px 0px;
+.products-group{
     font-family: $font-family-set;
+    margin:0;
     /* select-list */
     .select-list{
             list-style: none;
             display: flex;
             justify-content: center;
             font-weight:bold;
-            margin-bottom: 30px;
+            margin: 100px auto 30px auto;
             padding-left: 0;
             padding-right: 0;
+            @include i5X{
+                display: block;
+                width:80%;
+                border: 1px solid #eee;
+            }
+            @include i5Y{
+                display: block;
+                width:100%;
+                border: 1px solid #eee;
+            }
             .select-list-item{
                 border:#fff 1px solid;
                 text-align: center;
@@ -18,11 +28,19 @@
                 letter-spacing: 3px;
                 &:hover{
                     cursor: pointer;
-                    border-bottom: 1px solid #ff6666;
+                    border-bottom: 1px solid $base;
                 }
                 &.active{
                     transition: 0.6s all;
-                    border-bottom: 1px solid #ff6666;
+                    border-bottom: 1px solid $base;
+                }
+                @include i5X{
+                    font-size: 14px;
+                    padding:10px 15px;
+                    &:hover, &.active{
+                        background-color: $base;
+                        color:#fff;
+                    }
                 } 
             }
     }
@@ -35,6 +53,9 @@
             position: relative;
             width:100%;
             height:270px;
+            @include i5X{
+                height:220px
+            }
             .card-img {
                 width:100%;
                 height:100%;
@@ -48,7 +69,7 @@
                 writing-mode: vertical-lr;
                 top: 0;
                 left: 5%;
-                padding: 5px 10px;
+                padding: 15px 10px;
                 color: #fff;
                 background-color: $base;
                 font-size: 20px;
@@ -96,14 +117,19 @@
             }
         }
     }
+
     /* pagination */
     .page-list{
         list-style: none;
-        display: inline-flex;
+        display: flex;
         text-align: center;
-        float: right;
-        padding-inline-start:0px;
+        margin: 20px 0px 50px auto;
+        padding-inline-start:15px;
+        padding-inline-end:15px;
         color:#000;
+        @include i5X{
+            margin: 20px auto 50px auto;
+        }
         .page-list-item{
             padding:15px;
             margin-right:1px;

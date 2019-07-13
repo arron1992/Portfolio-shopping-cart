@@ -1,67 +1,85 @@
-.ad-coupon{
-    text-decoration-line: none;
-    .add-coupon-btn{
-        background-color: #000;
-        color: #fff;
-        padding:10px;
-        text-decoration: none;
-        border: radius 5px;
-        font-size: 20px;
-        width:216px;
-        text-align: center;
-        border-radius: 5px;
-        margin-top:15px;
-        font-family: monospace;
+.add-coupon-btn{
+    text-decoration-line: none !important;
+    background-color: #333;
+    padding:10px;
+    text-decoration: none !important;
+    font-size: 20px;
+    width:216px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: monospace;
+    display: block;
+    margin: 95px 15px 30px auto;
+    @include i5X{        
+        margin: 95px auto 30px auto;
     }
 }
 
-.table{
-    .ad-coupon-thead{
-        font-family: "HelveticaNeue-Bold";
-        font-size: 20px;
-        color: #000000;
-    }
-    .ad-coupon-tbody{
-        font-family: "HelveticaNeue";
-        font-size: $font-span;
-        .table-ul{
-            list-style-type: none;
-            margin:10px 0px;
-            padding-inline-start: 0px;
+.coupons-table{
+    .table{
+        th{
+            vertical-align: middle ;
         }
-        .able{
-            background-color: $main;
-        }
-        .unable{
-            background-color: $unable;
-        }
-        .able, .unable, .edit-btn, .remove-btn{
-            padding:10px 20px;
-            border-radius: 5px;
-            font-size: 18px;
-            color: #fff;
-            letter-spacing: 2px;
-            text-decoration: none;    
-            text-align: center;
-            width:100px;
-        }
-        .edit-btn{
-            border:1px $title solid;
-            margin-right: 15px;
-            color:#000;
-            &:hover{
-                background-color: $title;
-                color:#fff
+        th:nth-child(1), td:nth-child(1){
+            @include i5X{
+                display: none;         
             }
         }
-        .remove-btn{
-            border:1px $warning solid;
-            margin-right: 15px;
-            color:#000;
-            &:hover{
-                background-color: $warning;
-                color:#fff
-            } 
+        .ad-coupon-thead{
+            font-family: "HelveticaNeue-Bold";
+            font-size: 20px;
+            color: #000000;
+        }
+        .ad-coupon-tbody{
+            font-family: "HelveticaNeue";
+            font-size: $font-span;
+            .table-ul{
+                list-style-type: none;
+                margin:10px 0px;
+                padding-inline-start: 0px;
+            }
+            .able{
+                background-color: $main;
+            }
+            .unable{
+                background-color: $unable;
+            }
+            .able, .unable, .edit-btn, .remove-btn{
+                padding:10px 20px;
+                border-radius: 5px;
+                font-size: 18px;
+                color: #fff;
+                letter-spacing: 2px;
+                text-decoration: none;    
+                text-align: center;
+                width:100px;
+            }
+            .edit-btn{
+                border:1px $title solid;
+                margin-right: 15px;
+                color:#000;
+                &:hover{
+                    background-color: $title;
+                    color:#fff
+                }
+            }
+            .remove-btn{
+                border:1px $warning solid;
+                margin-right: 15px;
+                color:#000;
+                &:hover{
+                    background-color: $warning;
+                    color:#fff
+                } 
+            }
+            .edit-btn, .remove-btn{
+                @include padX{
+                    padding: 10px;         
+                }
+                @include i5X{
+                    padding: 5px;                
+                }
+            }         
         }
     }
 }
@@ -70,7 +88,7 @@ body{
     position: relative;
     .ad-coupon-modal{
         position: absolute;
-        z-index:99;
+        z-index:999;
         top:0;
         left:0;
         width:100%;

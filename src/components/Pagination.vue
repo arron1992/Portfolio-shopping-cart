@@ -1,6 +1,6 @@
 <template>
-    <div class="d-block w-100">
-        <ul class="page-area my-5 d-flex justify-content-end">
+    <div class="page-area">
+        <ul class="page-list">
             <li><a href="#" class="page-item" :class="{'noHover': !pageData.has_pre}"
             @click.prevent="sentDataMethod(page = pageData.current_page - 1)">&laquo;</a></li>
 
@@ -38,26 +38,43 @@ export default {
 }
 </script>
 <style lang="scss">
-    .page-area{
+.page-area{
+    margin:35px auto 25px auto;
+    ul{
+        padding: 0 10px;
+        @media(max-width: 568px){
+            padding:0px
+        }
+    }
+    .page-list{
         list-style: none;
         display: inline-flex;
         text-align: center;
-        padding: 0 15px;
+        margin: 30px 0px;
+        display: flex;
+        justify-content: center;
+        @media(max-width: 320px){
+            padding:0px 3px;
+        }
         .page-item{
             padding:15px;
             margin-right:1px;
             background-color: #fff;
             border :1px solid #9B9B9B;
-            color: #000;
-            font-size: 18px;
+            color: #333;
+            font-size: 20px;
             text-decoration: none;
+            @media(max-width: 568px){
+                padding: 7px;
+                font-size: 18px;
+            }
             &:hover{
-                background-color: #000;
+                background-color: #333;
                 color:#fff;
                 cursor: pointer;
             }           
             &.active{
-                background-color: #000;
+                background-color: #333;
                 color:#fff;
                 transition: 0.3s all;
                 cursor: pointer;  
@@ -67,4 +84,6 @@ export default {
             }    
         }
     }
+}
+
 </style>

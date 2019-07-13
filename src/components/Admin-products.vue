@@ -2,24 +2,21 @@
     <div>
         <loading :active.sync="isLoading"></loading>
         <Alert></Alert>
-        <div class="ad-product">
-            <div class="d-flex justify-content-end">
-                <a href="#" class="add-product-btn" @click.prevent="openModal(true)">Add New Product
-                    <i class="fas fa-plus"></i>
-                </a>                     
-            </div>
-        </div>
 
         <!-- Table Area-->
-        <div class="row">
-            <div class="col-12 mt-3">
+        <div class="row m-0">
+            <a href="#" class="add-product-btn" @click.prevent="openModal(true)">Add New Product
+                <i class="fas fa-plus"></i>
+            </a>  
+
+            <div class="col-12 products-table">
                 <table class="table table-hover table-bordered">
                     <thead class="ad-product-thead">
-                        <th width="">Product</th>
-                        <th width="160">Original</th>
-                        <th width="160">Discount</th>
-                        <th width="200">Status</th>
-                        <th width="200">Edit</th>
+                        <th>Product</th>
+                        <th>Original</th>
+                        <th>Discount</th>
+                        <th>Status</th>
+                        <th>Edit</th>
                     </thead>
                     <tbody class="ad-product-tbody">
                         <tr v-for="item in products" :key="item.id">
@@ -41,10 +38,10 @@
                     </tbody>
                 </table>
             </div> 
-
-            <!-- pagination -->       
-            <Pagination :page-data="pagination" v-on:bondMethod="reLoadMethod"></Pagination>      
         </div>
+
+        <!-- pagination -->       
+        <Pagination :page-data="pagination" v-on:bondMethod="reLoadMethod"></Pagination>      
 
         <!-- Product Modal -->
         <div class="ad-product-modal" v-if="isHide" @click.self="closeModal()">
@@ -56,15 +53,15 @@
                 <div class="modal-body">
                     <form @submit.prevent="">
                         <div class="row">
-                                <!-- Image Area-->
-                                <div class="col-6 img-area">
+                            <!-- Image Area-->
+                                <div class="col-md-6 col-sm-12 img-area">
                                     <div class="file-upload-wrapper" data-text="Select your file...">
                                         <input name="file-upload-field" ref="files" type="file" class="file-upload-field"
                                         @change="uploadFile">
                                     </div>
                                     
                                     <input type="text" name="item-img-txt" id="item-img-txt" class="item-img-txt"
-                                    v-model="tempProduct.image" placeholder="Pnput you website">
+                                    v-model="tempProduct.image" placeholder="Input you website">
                                     
                                     <div class="item-img-bg" :style="{backgroundImage: `url(${tempProduct.image})`}"></div>
                                     <textarea name="description" id="description" cols="30" rows="4" class="description"
@@ -72,39 +69,37 @@
                                 </div>
 
                                 <!-- Set Area-->
-                                <div class="col-6 set-area">
-                                        <div class="info-group mb-3">
+                                <div class="col-md-6 col-sm-12 set-area">
+                                        <div class="info-group mb-2">
                                             <label for="title">Product Content</label>
                                             <input type="text" name="title" id="title" 
                                             v-model="tempProduct.title" placeholder="Item name">  
-                                            <div class="mt-2">
-                                                <textarea name="content" id="content" cols="30" rows="4" class="textarea"
-                                                v-model="tempProduct.content" placeholder="Write somthing about your content?"></textarea>
-                                            </div>
+                                            <textarea name="content" id="content" cols="30" rows="4" class="textarea"
+                                            v-model="tempProduct.content" placeholder="Write somthing about your content?"></textarea>
                                         </div>
 
                                         <span class="info-group">Price</span>
                                         <div class="input-group mb-3">                
-                                            <div class="input-group-prepend">
+                                            <div class="input-group-prepend w-100">
                                                 <span class="input-group-text">Original</span>
+                                                <input type="text" class="form-control" v-model="tempProduct.origin_price">
                                             </div>
-                                            <input type="text" class="form-control" v-model="tempProduct.origin_price">
-                                            <div class="input-group-prepend pl-2">
+                                            <div class="input-group-prepend w-100 mt-3">
                                                 <span class="input-group-text">Discount</span>
+                                                <input type="text" class="form-control" v-model="tempProduct.price">
                                             </div>
-                                            <input type="text" class="form-control" v-model="tempProduct.price">
                                         </div>
 
-                                        <span class="info-group mt-3">Specification</span>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
+                                        <span class="info-group mt-2">Specification</span>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend w-100">
                                                 <span class="input-group-text">Category</span>
+                                                <input type="text" class="form-control" v-model="tempProduct.category">
                                             </div>
-                                            <input type="text" class="form-control" v-model="tempProduct.category">
-                                            <div class="input-group-prepend pl-2">
+                                            <div class="input-group-prepend w-100 mt-3">
                                                 <span class="input-group-text" id="basic-addon1">Unit</span>
+                                                <input type="text" class="form-control" v-model="tempProduct.unit">
                                             </div>
-                                            <input type="text" class="form-control" v-model="tempProduct.unit">
                                         </div>
 
                                         <div class="form-group form-check">
@@ -168,9 +163,9 @@ export default {
         },
         uploadFile(){
             // 01. 查看 this => console.log(this)
-            //02. 找出 upload 的 img
-            //03. 使用 formdata 模擬表單傳送
-            //04. 上傳 formdata
+            // 02. 找出 upload 的 img
+            // 03. 使用 formdata 模擬表單傳送
+            // 04. 上傳 formdata
 
             const vm = this;
             const img = vm.$refs.files.files[0];

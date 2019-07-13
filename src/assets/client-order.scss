@@ -1,13 +1,41 @@
 .order{
     font-family: $font-family-set;
-    margin:60px 0px;
+    .table-res{
+        @include padX{
+            overflow-x: scroll;     
+        }
+    }
+    .table-set{
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+    .table-pos{
+        margin-top: 110px;
+
+    }
     table{
+        th:nth-child(1), .order-table-img{
+            @include i5X{
+                display: none !important;
+            }
+        } 
+        td{
+            vertical-align: middle ;
+        }
+        // span{
+        //     color:#fff;
+        //     @include padY{
+        //         display: none;
+        //     }
+        // }
         .order-table-img {
             background-position: center center;
             background-size: cover;
             display: inline-block;
-            height: 35px;
-            width: 35px;
+            margin: 10px;
+            height: 50px;
+            width: 50px;
         }
         thead{
             background-color: $base;
@@ -22,7 +50,7 @@
         font-weight:900;
     }
     .pay-order, .payed{
-        width:100%;
+        width:95%;
         display: block;
         padding: 10px;
         text-align: center;

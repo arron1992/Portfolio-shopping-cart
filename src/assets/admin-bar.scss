@@ -1,36 +1,113 @@
-nav {
+.admin-nav {
     display: flex;
     margin-bottom : 27px;
-    background-color: #000;
+    background-color: #333;
+    padding: 0px;
+    .menu-btn-checkbox{
+        cursor: pointer;
+        position: absolute;
+        width:34px;
+        height:28px;
+        left:11px;
+        opacity: 0;
+
+        &:checked ~ .admin-menu {
+            max-height: 500px;
+        }
+    }
+    .admin-show-menu{
+        display: none;
+        margin-right:auto;
+        color:#fff;
+        padding-left: 13px;
+        @include i5X{
+            display: block; 
+        }
+    }
+    .nav-link{
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        cursor: pointer;
+        font-size: 22px;
+        @include padY{
+            font-size: 18px;
+            margin: 0 auto;
+        }
+    }
+    ul{
+        list-style: none;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+    .admin-menu{
+        display: flex;
+        margin-left: auto;
+        transition: max-height 1s;
+        @include i5X{
+            max-height: 0px;
+            overflow: hidden;
+            display: block; 
+            margin:0;
+            text-align: left;
+            position: absolute;
+            left:0;
+            right:0;
+            top:64px;
+            width:100%;
+            z-index: 888;
+            background-color: rgba(0,0,0,0.7);
+        }
+    }
+    li{
+        font-size: $font-span;
+        padding:20px;
+        cursor: pointer;
+        &:hover{
+            background-color: #eee;
+        }
+        &:hover .nav-item{
+            color:#333
+        }
+        @include i5X{
+            border-bottom: 1px solid #333;
+            &:hover{
+                background-color: transparent;
+            }
+            &:hover .nav-item{
+                color:$base;
+            }
+        }
+    }
     .nav-item{
         text-decoration: none;
         color: #fff;
-        font-size: $font-span;
-        padding:30px;
-        height:96px;
-    }
-    .nav-item:nth-child(1){
-        margin-right: 60px;
-    }
-    .nav-item:nth-child(2),.nav-item:nth-child(3),.nav-item:nth-child(4){
-        margin-right: 40px;
-        color:$unable;
+        text-align: center;
+        margin:0;
         font-weight: 900;
-        &:hover{
-            color: #fff;
-        }
-    }
-    .nav-item:focus, .nav-item.active,
-    .nav-item:focus, .nav-item.active,
-    .nav-item:focus, .nav-item.active {
-        color: #fff;
-        border-bottom:5px solid #fff;
     }
     .sign-out{
-        margin-left:auto;
-        color:#fff;
+        text-decoration: none;
+        color: #fff !important;
+        text-align: center;
+        font-weight: 900;
+        font-size: 18px;
+        padding: 20px;
+        cursor: pointer;
         &:hover{
-            cursor: pointer;
+            color:#333
+        }
+        @include i5X{
+            padding-left: 0;
+            font-size: 18px;
+            padding-top: 22px;
+        }
+    }
+    .nav-item, .sign-out{
+        @include padY{
+            font-size: 16px;
         }
     }
 }

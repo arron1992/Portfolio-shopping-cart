@@ -1,5 +1,5 @@
 <template>
-    <div class="d-inline" >
+    <div>
         <div class="cart-icon d-inline" @click="isHide = !isHide"> 
             <span class="cart-num badge" v-if="cart.carts.carts">{{cart.carts.carts.length}}</span>
             <i class="fas fa-shopping-cart fa-x"></i>
@@ -7,7 +7,6 @@
         
         <div class="cart-modal" v-if="isHide" @click.self="isHide = !isHide">
             <div class="cart-modal-content">
-                <!-- <span class="cart-modal-text text-secondary">已選擇商品</span> -->
                 <div class="cart-menu-scroll">
                     <p class="cart-info" v-if="cart.carts.carts.length == 0">購物車中無任何商品</p>
                     <table class="table">

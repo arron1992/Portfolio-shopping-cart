@@ -6,14 +6,15 @@
         <Jumbotron/>     
         <!-- Index start -->
             <div class="home-page">
-                <div class="hom-info-group">
+                <div class="home-info-group">
                     <h2>snowboards</h2>
                     <p>HENDRERIT IN VULPUTATE VELIT ESSE MOLESTIE CONSEQUAT, VEL ILLUM DOLORE</p>
                     <span><i class="fas fa-times"></i></span>
                 </div>
-                <div class="container">
-                    <div class="row home-product-group">
-                        <div class="col-4 item" v-for="item in filterAry" :key="item.id">
+                
+                <div class="home-container">
+                    <div class="row home-product-group m-0">
+                        <div class="col-md-4 col-sm-12 item m-0" v-for="item in filterAry" :key="item.id">
                             <div class="item-container">
                                 <a href="#" class="item-img" 
                                     :style="{backgroundImage:`url(${item.image})`}">
@@ -29,22 +30,23 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
+
                 <h3 class="mt-4">SNOWBOARD EXTREME SERIES</h3> 
                 <div class="features">
-                    <div class="container">
-                        <div class="row">
-                            <div class="features-item col-4">
+                    <div class="features-container">
+                        <div class="row m-0">
+                            <div class="features-item col-sm-12 col-md-4">
                                 <i class="fas fa-truck-loading"></i>
                                 <h5>FREE SHIPPING</h5>
                                 <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem possimus non odit quos iure dolorem obcaecati voluptas facere voluptate nihil.</span>
                             </div>
-                            <div class="features-item col-4">
+                            <div class="features-item col-sm-12 col-md-4">
                                 <i class="far fa-clock"></i>
                                 <h5>30 DAYS MONEY BACK</h5>
                                 <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem possimus non odit quos iure dolorem obcaecati voluptas facere voluptate nihil.</span>
                             </div>
-                            <div class="features-item col-4">
+                            <div class="features-item col-sm-12 col-md-4">
                                 <i class="fas fa-phone"></i>
                                 <h5>SUPPORT 24/7</h5>
                                 <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem possimus non odit quos iure dolorem obcaecati voluptas facere voluptate nihil.</span>
@@ -52,6 +54,7 @@
                         </div>
                     </div>        
                 </div>
+
                 <div class="bgcover">
                     <div class="bgcover-user-area">
                         <div class="bgcover-user-info">         

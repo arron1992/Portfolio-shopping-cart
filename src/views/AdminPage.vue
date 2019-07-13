@@ -1,6 +1,7 @@
 <template>
     <div>
         <adminBar/>
+        <router-view></router-view>
     </div>
 </template>
 <script>

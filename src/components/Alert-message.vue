@@ -5,7 +5,7 @@
             <span class="cart-message-x" @click.prevent="removeCartInfo(i)">+</span>
             <div class="cart-message-content" :class="'alert-' + item.status">
                 <p class="cart-message-title">Add To Cart</p>
-                <strong class="d-flex">{{item.title}} x {{item.qty}}</strong>
+                <strong class="cart-message-qty">{{item.title}} x {{item.qty}}</strong>
             </div>
         </div>
         

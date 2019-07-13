@@ -1,77 +1,93 @@
-.ad-product{
-    text-decoration-line: none;
-    .add-product-btn{
-        background-color: #000;
-        color: #fff;
-        padding:10px;
-        text-decoration: none;
-        border: radius 5px;
-        font-size: 20px;
-        width:216px;
-        text-align: center;
-        border-radius: 5px;
-        margin:15px 0px 0px 0px;
-        font-family: monospace;
+.add-product-btn{
+    background-color: #333;
+    color: #fff !important;
+    padding:10px;
+    text-decoration: none !important;
+    border: radius 5px;
+    font-size: 20px;
+    width:216px;
+    text-align: center;
+    border-radius: 5px;
+    margin:95px 15px 30px auto;
+    font-family: monospace;
+    @include i5X{        
+        margin: 95px auto 30px auto;
     }
 }
 
-.table{
-    .ad-product-thead{
-        font-family: "HelveticaNeue-Bold";
-        font-size: 20px;
-        color: #000000;
+.products-table{
+    @include padX{
+        overflow-x: scroll;         
     }
-    .ad-product-tbody{
-        font-family: "HelveticaNeue";
-        font-size: 18px;
-        .ad-product-img{
-            width: 50px;
-            height: 50px;
-            background-size: cover;
-            background-position: center center;
-            margin-right: 40px;
+    .table{
+        th{
+            vertical-align: middle ;
         }
-        .able{
-            background-color: $able;
+        .ad-product-thead{
+            font-family: "HelveticaNeue-Bold";
+            font-size: 20px;
+            color: #333333;
         }
-        .unable{
-            background-color: $unable;
-        }
-        .able, .unable, .edit-btn, .remove-btn{
-            padding:10px 20px;
-            border-radius: 5px;
+        .ad-product-tbody{
+            font-family: "HelveticaNeue";
             font-size: 18px;
-            color: #fff;
-            letter-spacing: 2px;
-            text-decoration: none;    
-            text-align: center;
-        }
-        .edit-btn{
-            border:1px $title solid;
-            margin-right: 15px;
-            color:#000;
-            &:hover{
-                background-color: $title;
-                color:#fff
+            .ad-product-img{
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+                background-position: center center;
+                margin-right: 40px;
+            }
+            .able{
+                background-color: $able;
+            }
+            .unable{
+                background-color: $unable;
+            }
+            .able, .unable, .edit-btn, .remove-btn{
+                padding:10px 20px;
+                border-radius: 5px;
+                font-size: 18px;
+                color: #fff;
+                letter-spacing: 2px;
+                text-decoration: none;    
+                text-align: center;
+            }
+            .edit-btn{
+                border:1px $title solid;
+                margin-right: 15px;
+                color:#333;
+                &:hover{
+                    background-color: $title;
+                    color:#fff
+                }
+            }
+            .remove-btn{
+                border:1px $warning solid;
+                margin-right: 15px;
+                color:#333;
+                &:hover{
+                    background-color: $warning;
+                    color:#fff
+                } 
+            }
+            .edit-btn, .remove-btn{
+                @include padX{
+                    padding: 10px;         
+                }
+                @include i5X{
+                    padding: 5px;                
+                }
             }
         }
-        .remove-btn{
-            border:1px $warning solid;
-            margin-right: 15px;
-            color:#000;
-            &:hover{
-                background-color: $warning;
-                color:#fff
-            } 
-        }
-    }
+    } 
 }
 
 body{
     position: relative;
     .ad-product-modal{
         position: absolute;
-        z-index:99;
+        z-index:99999;
         top:0;
         left:0;
         width:100%;
@@ -81,8 +97,13 @@ body{
             position: absolute;
             margin:10% 10%;
             max-width:80%;
-            height:605px; 
+            height:653px; 
             text-transform:capitalize;
+            @include padX{
+                height:965px; 
+                max-width:90%;
+                margin:30% 5%;
+            }
             .modal-head{
                 background-color: $main;
                 color:#fff;
@@ -95,7 +116,10 @@ body{
                     line-height: 64px;
                     font-size: $font-title;
                     font-weight: 800;
-                    letter-spacing: 2px
+                    letter-spacing: 2px;
+                    @include padY{
+                        font-size: 18px;
+                    }    
                 }
                 .close-btn{
                     color:#fff;
@@ -105,33 +129,47 @@ body{
                     font-size: 36px;
                     cursor: pointer;
                     transform: rotate(45deg);
+                    @include padY{
+                        font-size: 30px;
+                    }
                     &:hover{
                         color:#000;
                     }
                 }
             }
-            .modal-body{            
+            .modal-body{          
                 .img-area{
                     text-transform: capitalize;
                     .file-upload-wrapper{
-                        width:472px;
                         height:120px;
                         position: relative;
                         background: #EBEBEB ;
-                        margin-top: 9px;
+                        margin: 0px auto 0px auto;
                         &:after{
                             content: attr(data-text);
                             font-size: 18px;
                             position: absolute;
                             top: 0;
                             left: 0;
-                            padding-top:40px;
-                            padding-left:150px;
+                            right:0;
+                            padding:5px 10px;
                             background: #EBEBEB ;
                             pointer-events: none;
                             z-index: 20;
                             color: $unable;
                             font-weight: 300;
+                            @include padX{
+                                // padding:40px 0px 0px 90px;
+                            }
+                            @include padY{
+                                // padding:40px 0px 0px 200px;
+                            }
+                            @include i5X{
+
+                            }
+                            @include i5Y{
+
+                            }
                         }
                     }
                     .file-upload-field{
@@ -154,14 +192,20 @@ body{
                         background-position: center center;
                         background-repeat: no-repeat;
                         background-size: cover;
+                        @include padX{
+                            display: none;
+                        }
                     }
-                        .description{
-                            border: 2px solid #EBEBEB;;
-                            width: 100%;
-                            margin: 10px 0px;
-                            padding: 5px;
-                            font-size: 16px;
-                        }       
+                    .description{
+                        border: 2px solid #EBEBEB;;
+                        width: 100%;
+                        margin: 10px 0px;
+                        padding: 5px;
+                        font-size: 16px;
+                        @include padX{
+                            margin: 5px 0px;
+                        }
+                    }       
                 }
                 .set-area{
                     .info-group{
@@ -181,6 +225,7 @@ body{
                                 font-size: 16px;
                             }
                             .textarea{
+                                margin-top: 10px;
                                 width:100%;
                                 font-size: 16px;
                                 padding:5px;
@@ -207,7 +252,7 @@ body{
                     line-height: 24px;
                     font-family: 'HelveticaNeue-Bold';
                     font-weight: 800;
-                    width:477px;
+                    width:100%;
                     letter-spacing: 1px;
                     border-radius: 5px;
                     &:hover{

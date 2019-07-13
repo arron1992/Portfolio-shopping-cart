@@ -1,9 +1,9 @@
 <template>
     <div>
         <footer>
-            <div class="container">
+            <div class="footer-container">
                 <div class="row">
-                    <div class="col-3 footer-box">
+                    <div class="col-md-3 col-sm-12 footer-box">
                         <h4 class="footer-title">Product</h4>
                         <ul>
                             <li><a href="#" class="footer-link">Mens</a></li>
@@ -11,7 +11,7 @@
                             <li><a href="#" class="footer-link">Youth</a></li>
                         </ul>
                     </div>
-                    <div class="col-3 footer-box">
+                    <div class="col-md-3 col-sm-12 footer-box">
                         <h4 class="footer-title">About</h4>
                         <ul>
                             <li><a href="#" class="footer-link">Careers and internships</a></li>
@@ -19,7 +19,7 @@
                             <li><a href="#" class="footer-link">Team</a></li>
                             <li><a href="#" class="footer-link">Catalog Request/Download</a></li>
                         </ul>
-                    </div><div class="col-3 footer-box">
+                    </div><div class="col-md-3 col-sm-12 footer-box">
                         <h4 class="footer-title">Contact Us</h4>
                         <ul>
                             <li><a href="#" class="footer-link">Tel: (02)3345678</a></li>
@@ -27,7 +27,7 @@
                             <li><a href="#" class="footer-link">Addres: New Taipei City</a></li>
                         </ul>
                     </div>
-                    <div class="col-3 footer-box">
+                    <div class="col-md-3 col-sm-12 footer-box">
                         <h4 class="footer-title">Follow Us</h4>
                         <ul class="icon-group">
                             <li><a href="#"><i class="fab fa-facebook-f fa-2x"></i></a></li>

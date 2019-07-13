@@ -1,10 +1,14 @@
 <template>
     <div>
         <nav>
+            <input type="checkbox" class="menu-button-checkbox">
+            <a href="#" class="show-menu">
+                <i class="fas fa-bars fa-2x"></i>
+            </a>
             <div class="menu-img">
                 <h1><router-link to="/home" class="menu-item">電商</router-link></h1>
             </div>
-            <ul class="menu ml-auto">
+            <ul class="menu">
                 <li>
                     <router-link to="/home" class="menu-item">Home</router-link>
                 </li> 
@@ -19,16 +23,15 @@
                         Sign In
                     </router-link>
                 </li>
-                <li>
-                    <Cart/>
-                </li>
-            </ul>
+            </ul>          
+            <Cart></Cart>
         </nav>
     </div>
 </template>
 
 <script>
 import Cart from './Cart'
+import $ from 'jquery'
 export default {
     components:{
         Cart,
@@ -37,7 +40,7 @@ export default {
         return {}
     },
     methods:{
+    },
 
-    }
 }
 </script>

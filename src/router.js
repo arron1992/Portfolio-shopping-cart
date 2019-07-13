@@ -5,13 +5,13 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path : '*',
-      redirect : '/login'
-    },
-    {
       path: '/home',
       name: 'home',
       component: () => import('./views/Home.vue')
+    },
+    {
+      path : '*',
+      redirect : '/login'
     },
     {
       path: '/login',
@@ -31,7 +31,7 @@ export default new Router({
         {
           path: 'porduct/:itemId',
           name: 'porduct',
-          component: () => import('./components/Item.vue')
+          component: () => import('./components/Product.vue')
         }
       ]
     },

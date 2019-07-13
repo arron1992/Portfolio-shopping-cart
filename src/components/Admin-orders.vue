@@ -2,15 +2,15 @@
     <div>
         <loading :active.sync="isLoading"></loading>
         <!-- Table Area-->
-        <div class="row">
-            <div class="col-12 mt-3">
+        <div class="row m-0">
+            <div class="col-12 order-table p-0">
                 <table class="table table-hover table-bordered">
                     <thead class="ad-order-thead">
-                        <th width="120">Purchase time</th>
-                        <th width="150">E-mail</th>
-                        <th width="150">Products</th>
-                        <th width="100">Order Bill</th>
-                        <th width="100">Status</th>
+                        <th >Purchase time</th>
+                        <th >E-mail</th>
+                        <th >Products</th>
+                        <th >Order Bill</th>
+                        <th >Status</th>
                     </thead>
                     <tbody class="ad-order-tbody">
                         <tr v-for="item in orders" :key="item.id">
@@ -23,7 +23,7 @@
                                     </li>
                                 </ul>
                             </td>
-                            <td class="align-middle text-right">NT {{item.total |　currency}}</td>
+                            <td class="align-middle text-right">{{item.total |　currency}}</td>
                             <td class="align-middle">
                                 <div class="able" v-if="item.is_paid">Paid</div>
                                 <div class="unable" v-else>Unpaid</div>

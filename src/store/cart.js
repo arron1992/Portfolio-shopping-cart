@@ -36,7 +36,6 @@ export default {
             axios.get(url).then((res)=>{
                 if(res.data.data.carts){
                     context.commit('CART',res.data.data);
-                    // console.log(res.data.data);
                 }
                 context.commit('LOADING', false , {root:true} );        
             })
@@ -45,7 +44,6 @@ export default {
             const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/cart/${id}`
             context.commit('LOADING', true , {root:true} );                        
             axios.delete(url).then((res)=>{
-                // console.log(res);
                 context.dispatch('getCart')
                 context.commit('LOADING', false , {root:true} );   
             })

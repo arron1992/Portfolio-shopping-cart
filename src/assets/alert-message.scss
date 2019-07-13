@@ -1,76 +1,214 @@
 .alert{
-    z-index: 9999;
+    z-index: 999999999;
     margin: 0;
     padding: 0;
     border:0;
-    .cart-message-box, .sign-message-box, 
-    .coupon-message-box, .upload-message-box{
-        position: relative;
-        display: inline-block;
-        padding: 20px;
-        position: fixed;
-        right:5%;
-        top:5%;
-    }
-    .cart-message-x, .sign-message-x, 
-    .coupon-message-x, .upload-message-x{
-        color:#fff;
-        position: absolute;
-        top:17%;
-        right:13%;
-        font-size: 16px;
-        cursor: pointer;
-        transform: rotate(45deg);
-        &:hover{
-            color:#000;
-        }
-    }
-    .cart-message-content, .sign-message-content, 
-    .coupon-message-content, .upload-message-content{
-        padding: 20px;
-        font-size: 16px;
-        letter-spacing: 2px;
-    }
-    .alert-false{
-        background-color: $base;
-    }
-    .alert-true{
-        background-color: $second;
-    }
-
-    // Add to Cart
-    .cart-message-box{
-        .cart-message-x{
-            top:12%;
-            right:12%;
-        }
-        .cart-message-content{
-            padding: 0;
-            background-color: #eee;
-            .cart-message-title{
-                background-color: $base;
-                padding: 10px 20px 10px 20px;
-                margin-bottom: 0;
+        // cart
+        .cart-message-box{
+            position: relative;
+            display: inline-block;
+            padding: 15px;
+            position: fixed;
+            right:0%;
+            top:13%;
+            @include padY{
+                top:15%;
+            }
+            @include i5X{
+                top:0%;
+                right:0%;
+                left: 0%;
+                width:100%;
+                padding: 0px;
+                margin : 0 auto;
+                text-align: center;
+                height: 86px;
             }
             .cart-message-x{
-                top:17%;
-                right:15%;
+                color:#fff;
+                position: absolute;
+                top:10%;
+                right:10%;
+                font-size: 16px;
+                cursor: pointer;
+                transform: rotate(45deg);
+                &:hover{
+                    color:#333;
+                }
+                @include i5X{
+                    top:-1%;
+                    right:1.5%
+                }
             }
-            span, strong{
-                padding: 15px 20px 15px 20px;
+            .cart-message-content{
+                padding: 20px;
+                font-size: 16px;
+                letter-spacing: 2px;
+                padding: 0;
+                background-color: #eee;
+                .cart-message-title{
+                    background-color: $base;
+                    padding: 10px 20px;
+                    margin-bottom: 0;
+                }
+                .cart-message-qty{
+                    display: flex;
+                    padding: 10px 20px;
+                    @include padY{
+                        text-align: center;
+                        display: inline-block;
+                    }
+                }
             }
         }
-    }
 
-    // Use Coupon
-    .coupon-message-x{
-        top:17%;
-        right:12%
-    }
+        // sign
+        .sign-message-box{
+            position: relative;
+            display: inline-block;
+            padding: 15px;
+            position: fixed;
+            right:-1%;
+            top:15%;
+            @include padY{
+                top:0%;
+            }
+            @include i5X{
+                top:0%;
+                right:0%;
+                left: 0%;
+                width:100%;
+                padding: 0px;
+                margin : 0 auto;
+                text-align: center;
+                height: 86px;
+            }
+            .sign-message-x{
+                color:#fff;
+                position: absolute;
+                top:15%;
+                right:15%;
+                font-size: 16px;
+                cursor: pointer;
+                transform: rotate(45deg);
+                &:hover{
+                    color:#333;
+                }
+                @include i5X{
+                    top:-3%;
+                    right:1%
+                }
+                
+            }
+            .sign-message-content{
+                padding: 15px;
+                font-size: 16px;
+                letter-spacing: 2px;
+                @include i5X{
+                    line-height: 86px;
+                    height: 86px;
+                    font-size: 24px;
+                    padding: 0px;
+                }
+            }
+        }
 
-    // Login 
-    .sign-message-x{
-        top:17%;
-        right:15%
-    }
+        // coupon
+        .coupon-message-box{
+            position: relative;
+            display: inline-block;
+            padding: 20px;
+            position: fixed;
+            right:-5px;
+            top:12%;
+            @include padY{
+                right:-5px;
+                top:14%;
+            }
+            @include i5X{
+                top:0%;
+                right:0%;
+                left: 0%;
+                width:100%;
+                padding: 0px;
+                margin : 0 auto;
+                text-align: center;
+                height: 86px;
+            }
+            .coupon-message-x{
+                color:#fff;
+                position: absolute;
+                top:17%;
+                right:9%;
+                font-size: 16px;
+                cursor: pointer;
+                transform: rotate(45deg);
+                &:hover{
+                    color:#333;
+                }
+                @include i5X{
+                    top:-1%;
+                    right:1%
+                }   
+            }
+            .coupon-message-content{
+                padding: 20px;
+                font-size: 16px;
+                letter-spacing: 2px;
+                @include i5X{
+                    padding: 0;
+                    height:100%;
+                    line-height: 86px;
+                }
+            }
+        }
+
+        // upload
+        .upload-message-box{
+            position: relative;
+            display: inline-block;
+            position: fixed;
+            top:0%;
+            right:0%;
+            left: 0%;
+            width:100%;
+            padding: 0px;
+            margin : 0 auto;
+            text-align: center;
+            height: 66.9px;     
+            .upload-message-x{
+                color:#fff;
+                position: absolute;
+                top:2%;
+                right:1%;
+                font-size: 24px;
+                cursor: pointer;
+                transform: rotate(45deg);
+                &:hover{
+                    color:#333;
+                }
+                @include i5X{
+                    top:0%;
+                    right:2%
+                }
+            }
+            .upload-message-content{
+                font-size: 16px;
+                letter-spacing: 2px;
+                height: 66.9px; 
+                line-height: 66.9px;
+            }
+        }
+
+         // alert-status
+        .alert-false{
+            background-color: $base;
+        }
+        .alert-true{
+            background-color: $second;
+        }
 }
+
+    
+    
+
