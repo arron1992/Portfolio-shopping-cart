@@ -26,14 +26,17 @@
         }
         .bg-banner{
             max-width:100%;
-            height:485px;
+            height:550px;
             @media(max-width: 568px){
-                height:285px;
+                height:350px;
+            }
+            @media(max-width: 320pxx){
+                height:270px;
             }
         }
     }
     .bg-banner-item{
-        background:url(https://images.unsplash.com/photo-1473256599800-b48c7c88cd7e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ae0d68ab0db4ee79bdce92722b31112b&auto=format&fit=crop&w=2725&q=80) no-repeat;
+        background:url(https://images.unsplash.com/photo-1546466619-1c42ee80a82b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60) no-repeat;
         background-position: center center;
         background-size:cover;
         width:100%;

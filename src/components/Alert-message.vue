@@ -4,8 +4,7 @@
         <div class="cart-message-box" v-for="(item,i) in cartInfo" :key="i">
             <span class="cart-message-x" @click.prevent="removeCartInfo(i)">+</span>
             <div class="cart-message-content" :class="'alert-' + item.status">
-                <p class="cart-message-title">Add To Cart</p>
-                <strong class="cart-message-qty">{{item.title}} x {{item.qty}}</strong>
+                <strong>{{item.title}} x {{item.qty}}</strong>
             </div>
         </div>
         

@@ -7,9 +7,9 @@
             </a>
             <router-link to="/home" class="nav-link">Moluccess</router-link>
             <ul class="admin-menu">
-                <li><router-link to="/admin" class="nav-item ml-auto">Orders</router-link></li>
+                <li><router-link to="/admin" class="nav-item ml-auto">Products</router-link></li>
                 <li><router-link to="/admin/coupons" class="nav-item" >Coupons</router-link></li>
-                <li><router-link to="/admin/products" class="nav-item">Products</router-link></li>
+                <li><router-link to="/admin/orders" class="nav-item">Orders</router-link></li>
             </ul>
             <a class="sign-out" @click="signOut()">Sign out</a>
         </nav>

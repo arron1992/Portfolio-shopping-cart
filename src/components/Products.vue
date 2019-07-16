@@ -9,9 +9,9 @@
                 <ul class="select-list">
                     <li class="select-list-item" 
                     @click.prevent="keyText = ''" 
-                    :class="{'active': keyText === ''}">全部</li>
+                    :class="{'active': keyText === ''}">All</li>
 
-                    <li v-for="(item,i) in categories "
+                    <li v-for="(item,i) in categories"
                         class="select-list-item"
                         :key="i"
                         @click.prevent="keyText = item"
@@ -106,7 +106,8 @@ computed: {
         let newData = [];
         if (vm.keyText !== "") {
             newData = vm.products.filter(item => {
-                return item.title.toLowerCase().includes(vm.keyText.toLowerCase());
+                // return item.title.toLowerCase().includes(vm.keyText.toLowerCase());
+                return item.category === vm.keyText;
             });
         } else {
             newData = vm.products;

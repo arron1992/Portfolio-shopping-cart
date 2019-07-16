@@ -25,12 +25,12 @@ export default {
             payload.forEach((item) => {
                 categories.add(item.category);
             });
-            state.categories = Array.from(categories);
+            state.categories = categories
         }
     },
     getters:{
         categories : state => state.categories,
-        products : state => state.products 
+        products : state => state.products
     }
 }
 

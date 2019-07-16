@@ -11,7 +11,7 @@ export default new Router({
     },
     {
       path : '*',
-      redirect : '/login'
+      redirect : '/home'
     },
     {
       path: '/login',
@@ -61,7 +61,7 @@ export default new Router({
         {
           path: '',
           name: '',
-          component: () => import('./components/Admin-orders'),
+          component: () => import('./components/Admin-products'),
           meta: { requiresAuth: true }, 
         },
         {
@@ -71,9 +71,9 @@ export default new Router({
           meta: { requiresAuth: true }
         },
         {
-          path: 'products',
-          name: 'admin-products',
-          component: () => import('./components/Admin-products'),
+          path: 'orders',
+          name: 'admin-orders',
+          component: () => import('./components/Admin-orders'),
           meta: { requiresAuth: true }
         }
       ]

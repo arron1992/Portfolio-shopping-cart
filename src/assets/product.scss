@@ -7,22 +7,26 @@
         padding: 0;
         max-width:90%;
     }
+    
     @include i5Y{
         margin: 90px auto 30px auto;
         padding: 0;
-        max-width:80%;
+        max-width:90%;
     }
     //product-img-group 
     .product-img-group{
         font-family: $font-family-set;
         padding: 0;
+        @include padY{
+            padding: 5px;
+        }
         .product-img{
             height: 350px;
             background-size: cover;
             background-position: center center; 
             margin: 0 auto;
-            @include i5Y{
-                height: 300px;
+            @include padY{
+                height: 350px;
             }
         }
     }
@@ -30,6 +34,12 @@
     //product-txt-group 
     .product-txt-group{
         font-family: $font-family-set;
+        @include padX{
+            padding: 0px 10px !important;
+        }
+        @include padY{
+            padding: 0px 5px;
+        }
         .product-title{
             font-size: $font-title;
             font-family: $font-family-title;
@@ -50,6 +60,14 @@
         border: 1px solid $unable;
         padding:30px 20px;
         margin-right:0px;
+        @include padY{
+            max-width: 100%;
+            margin:0 auto;
+        }
+        @include i5X{
+            max-width: 95%;
+            margin:0 auto;
+        }
         .price{
             font-size: 3em;
             font-weight:bolder;
@@ -119,6 +137,14 @@
         margin: 30px 0px 0px 0px;
         padding: 0;
         display: block;
+        @include padY{
+            max-width: 100%;
+            margin:0 auto;
+        }
+        @include i5X{
+            max-width: 95%;
+            margin:0 auto;
+        }
         .des-span{
             font-size: $font-title;
             font-family: $font-family-title;     

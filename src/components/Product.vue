@@ -15,7 +15,7 @@
                 <!-- product-txt-group -->
                 <div class="col-md-6 col-sm-12 product-txt-group">
                     <h3 class="product-title">{{item.title}}</h3>
-                    <p class="product-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore sapiente fugiat distinctio facilis itaque doloribus ex assumenda recusandae dicta obcaecati eos nobis nisi nulla error quidem suscipit repellendus accusantium officia, quod at cupiditate corporis exercitationem! Odit eos natus iure saepe, sapiente quis commodi voluptates dolores accusamus vero dignissimos ipsa error.</p>
+                    <p class="product-content">{{item.content}}</p>
                     <div class="d-flex">
                         <h5><span class="badge badge-pill badge-color mr-2">#{{item.category}}</span></h5>
                         <h5><span class="badge badge-pill badge-color" v-if="item.price">#On Sale</span></h5>
@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-12 des-area">
                     <span class="des-span">DESCRIPTION</span>   
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero atque culpa fugit debitis. Omnis quis cumque praesentium sit quae voluptatum veritatis et, consequuntur repellat blanditiis minus libero sapiente tenetur, commodi deserunt ratione autem sed hic quisquam fuga aut illo cum? Ab iure laboriosam corrupti, magni eligendi in modi maxime ad qui itaque sed voluptates aliquid odit recusandae nam autem magnam consequuntur, nobis provident placeat quidem natus fugit. Modi minima architecto ex nesciunt alias voluptatum? Autem voluptas dignissimos explicabo laborum fuga adipisci aliquid sunt. Cupiditate maiores iure reiciendis unde alias repellendus eveniet temporibus dolor. Dicta architecto recusandae, nostrum adipisci quia enim.</p>
+                    <p>{{item.description}}</p>
                 </div>
             </div>
         </div>
