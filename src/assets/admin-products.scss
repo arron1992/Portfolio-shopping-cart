@@ -90,6 +90,8 @@ body{
         z-index:99999;
         top:0;
         left:0;
+        bottom:0;
+        right:0;
         width:100%;
         height:100%;
         background-color: rgba(0, 0, 0, 0.3);
@@ -97,13 +99,14 @@ body{
             position: absolute;
             margin:10% 10%;
             max-width:80%;
-            height:653px; 
+            height:660px; 
             text-transform:capitalize;
-            @include padX{
-                height:965px; 
+            @include padY{
+                height:955px; 
                 max-width:90%;
-                margin:30% 5%;
+                margin:10% 5%;
             }
+    
             .modal-head{
                 background-color: $main;
                 color:#fff;
@@ -158,18 +161,6 @@ body{
                             z-index: 20;
                             color: $unable;
                             font-weight: 300;
-                            @include padX{
-                                // padding:40px 0px 0px 90px;
-                            }
-                            @include padY{
-                                // padding:40px 0px 0px 200px;
-                            }
-                            @include i5X{
-
-                            }
-                            @include i5Y{
-
-                            }
                         }
                     }
                     .file-upload-field{
@@ -188,11 +179,11 @@ body{
                     .item-img-bg{
                         border: 2px solid #EBEBEB;;
                         width: 100%;
-                        height:255px;
+                        height:260px;
                         background-position: center center;
                         background-repeat: no-repeat;
                         background-size: cover;
-                        @include padX{
+                        @include padY{
                             display: none;
                         }
                     }

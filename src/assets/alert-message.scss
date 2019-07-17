@@ -98,49 +98,31 @@
         .coupon-message-box{
             position: relative;
             display: inline-block;
-            padding: 20px;
             position: fixed;
-            right:-5px;
-            top:12%;
-            @include padY{
-                right:-5px;
-                top:14%;
-            }
-            @include i5X{
-                top:0%;
-                right:0%;
-                left: 0%;
-                width:100%;
-                padding: 0px;
-                margin : 0 auto;
-                text-align: center;
-                height: 86px;
-            }
+            top:0%;
+            right:0%;
+            left: 0%;
+            width:100%;
+            padding: 0px;
+            margin : 0 auto;
+            text-align: center;
             .coupon-message-x{
                 color:#fff;
                 position: absolute;
-                top:17%;
-                right:9%;
-                font-size: 16px;
+                top: -11%;
+                right: 2%;
+                font-size: 36px;
                 cursor: pointer;
                 transform: rotate(45deg);
                 &:hover{
                     color:#333;
-                }
-                @include i5X{
-                    top:-1%;
-                    right:1%
-                }   
+                }           
             }
             .coupon-message-content{
-                padding: 20px;
                 font-size: 16px;
                 letter-spacing: 2px;
-                @include i5X{
-                    padding: 0;
-                    height:100%;
-                    line-height: 86px;
-                }
+                height: 86px;
+                line-height: 86px;
             }
         }
 

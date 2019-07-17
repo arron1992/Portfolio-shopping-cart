@@ -4,6 +4,7 @@ form{
         margin-bottom:0px; 
     }
     .form-area{
+        margin-top: 110px;
         // coupon-group
         .coupon-group , .info-group{
             border:1px solid #ccc;
@@ -13,6 +14,7 @@ form{
                 border-bottom: 1px solid #ccc;
                 @include padY{
                     text-align: center;
+                    font-size: 20px;
                 }
             }
             .code-text, .code-btn{
@@ -44,8 +46,11 @@ form{
     
         // info-group
         .form-row{
-            padding: 15px;
-            margin: 0 0 30px 0;
+            margin:0;
+            padding: 15px 15px 5px 15px;
+            @include padY{
+                padding: 5px 10px 0px 10px;
+            }
             @include i5Y{
                 margin: 0;
                 padding-bottom: 0;
@@ -71,9 +76,10 @@ form{
     }
     
     .order-area{
-        padding-left: 0;
+        padding-left:15px;
+        margin: 110px auto 0px auto;
         @include padY{
-            padding-left: 15px;
+            margin: 15px 0px 30px 0px;
         }
         p{
             color:$base;
@@ -85,6 +91,9 @@ form{
         .table thead tr th, .table tbody tr td, .table tfoot tr td{
             border: 1px solid #ccc;
             text-align: center;
+            @include i5Y{
+                padding: 5px;
+            }
         }
         .table thead{
             font-weight: bold;
@@ -104,7 +113,9 @@ form{
         .money-area{
             span:nth-child(1){
                 font-size: 16px;
-    
+                @include i5X{
+                    font-size: 12px;
+                }
             }
             width:100%;
             padding: 15px;
@@ -112,10 +123,16 @@ form{
             border-bottom:1px solid #ccc;
             margin:10px 0px;
             font-size: 18px;
+            @include i5X{
+                padding: 10px;
+            }
             .discouot-group{
                 strong, span{
                     color: $warning;
                     font-size: 24px;
+                    @include i5X{
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -132,15 +149,6 @@ form{
                 border: $base 1px solid;
                 background-color: #fff;
             }
-        }
-    }
-    
-    .form-area, .order-area{
-        margin-top: 110px;
-    }
-    .order-area{
-        @include padY{
-            margin: 15px 0px 30px 0px;
         }
     }
 }
