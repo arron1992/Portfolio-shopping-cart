@@ -106,7 +106,6 @@ computed: {
         let newData = [];
         if (vm.keyText !== "") {
             newData = vm.products.filter(item => {
-                // return item.title.toLowerCase().includes(vm.keyText.toLowerCase());
                 return item.category === vm.keyText;
             });
         } else {

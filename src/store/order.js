@@ -13,16 +13,16 @@ export default {
         },
         payOrder(context,orderId){
             const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/pay/${orderId}`;
-            context.commit('LOADING', true , {root:true} )            
+            context.commit('LOADING', true , {root:true});         
             axios.post(url).then((res) => {
-                context.commit('LOADING', false , {root:true} )
+                context.commit('LOADING', false , {root:true});
                 context.dispatch('getOrder',orderId);
             })
         },
     },
     mutations:{
         ORDER(state,payload){
-            state.order = payload
+            state.order = payload;
         }
     },
     getters:{

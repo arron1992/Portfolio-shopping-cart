@@ -28,7 +28,7 @@
                             </td>
                         </tr>          
                     </tbody> 
-                </table> 
+                    </table> 
                 </div>  
                 <div class="cart-modal-footer" v-if="cart.carts.carts.length !== 0">
                     <div class="d-flex total-area">
@@ -61,7 +61,7 @@ export default {
     },
     watch: {
         isHide: function () {
-            document.body.style.overflow = this.isHide ? 'hidden' : 'auto'
+            document.body.style.overflow = this.isHide ? 'hidden' : 'auto';
         }
     },
     created(){

@@ -31,8 +31,8 @@ export default {
         z-index: 999;
         text-decoration: none;
         @media (max-width: 568px) { 
-                right:20px;
-                bottom: 20px;
+            right:20px;
+            bottom: 20px;
         }
         a{
             color : #fff;

@@ -1,8 +1,6 @@
 .add-product-btn{
     background-color: #333;
-    color: #fff !important;
     padding:10px;
-    text-decoration: none !important;
     border: radius 5px;
     font-size: 20px;
     width:216px;
@@ -10,6 +8,8 @@
     border-radius: 5px;
     margin:95px 15px 30px auto;
     font-family: monospace;
+    color: #fff !important;
+    text-decoration: none !important;
     @include i5X{        
         margin: 95px auto 30px auto;
     }

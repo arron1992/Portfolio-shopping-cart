@@ -72,8 +72,8 @@ export default {
 
     },
     created(){
-        this.itemId = this.$route.params.itemId
-        this.getItem(this.itemId)
+        this.itemId = this.$route.params.itemId;
+        this.getItem(this.itemId);
     }
 }
 </script>

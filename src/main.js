@@ -16,7 +16,7 @@ import currencyFilter from './filiters/currency';
 import timestampFilter from './filiters/timestamp';
 
 // 啟用套件 & 元件 & Filters
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.component('Loading',Loading);
 Vue.filter('currency', currencyFilter);
@@ -35,7 +35,7 @@ router.beforeEach((to, from, next) => {
         if(res.data.success){
           next();
         } else{
-          next({path:'/login'})
+          next({path:'/login'});
         }
     })
   } else {

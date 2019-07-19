@@ -18,15 +18,14 @@
 <script>
 export default {
     data(){
-        return{
-        }
+        return{}
     },
     methods:{
         signOut(){
             const vm = this;
-            const api =`${process.env.VUE_APP_APIPATH}/logout`
+            const api =`${process.env.VUE_APP_APIPATH}/logout`;
             vm.$http.post(api).then((response) =>{
-                    vm.$router.push('/store/products')            
+                vm.$router.push('/store/products');            
             })
         }
     }

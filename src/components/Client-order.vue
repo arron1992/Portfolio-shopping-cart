@@ -33,10 +33,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!-- <div class="d-flex justify-content-end align-items-baseline">
-                        <span class="pr-3 h6">Final Total</span>
-                        <span class="h4">{{order.total | currency}}</span>
-                    </div> -->
                 </div>
             </div>
             <br/>

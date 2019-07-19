@@ -21,7 +21,7 @@ export default {
           $(window).scroll(function(){
               const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;     
               const element = document.querySelector('.top');
-              scrollTop !== 0 ? element.style.display = 'block' : element.style.display = 'none'
+              scrollTop !== 0 ? element.style.display = 'block' : element.style.display = 'none';
           })
       },
   },

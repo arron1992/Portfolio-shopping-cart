@@ -36,97 +36,96 @@
         max-width: 90%;
         margin: 0 auto;
         .home-product-group{
-                .item{
-                    padding: 10px;
-                    @include i5X{
-                        padding: 0px 0px 15px 0px;
-                        margin: 0 10px;
+            .item{
+                padding: 10px;
+                @include i5X{
+                    padding: 0px 0px 15px 0px;
+                    margin: 0 10px;
+                }
+                .item-container{
+                    width:100%;
+                    height:400px;
+                    position: relative;                
+                    @include padX{
+                        height: 350px;
                     }
-                    .item-container{
+                    @include i5Y{
+                        height: 300px;
+                    }                    
+                    .item-img{
                         width:100%;
-                        height:400px;
-                        @include padX{
-                            height: 350px;
-                        }
-                        @include i5Y{
-                            height: 300px;
-                        }
-                        position: relative;
-                        .item-img{
-                            width:100%;
-                            height:100%;
-                            display: block;
-                            background-repeat: no-repeat;
-                            background-position: center center;
-                            background-size: cover;
-                        }
-                        .item-box{
+                        height:100%;
+                        display: block;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: cover;
+                    }
+                    .item-box{
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        width:100%;
+                        height:100%;
+                        transition: .3s ease;
+                        .item-txt{
                             position: absolute;
-                            top:0;
-                            left:0;
-                            width:100%;
-                            height:100%;
+                            top:50%;
+                            left:50%;
+                            transform: translate(-50%,-50%);
                             transition: .3s ease;
-                            .item-txt{
-                                position: absolute;
-                                top:50%;
-                                left:50%;
-                                transform: translate(-50%,-50%);
+                            text-align: center;
+                            opacity: 0;
+                            font-size: 24px;
+                            font-weight: 900;
+                            letter-spacing: 3px;
+                            color:#fff;
+                            @include padY{
+                                font-size: 22px;
+                            }
+                        }
+                        .onsale-text{
+                            position: absolute;
+                            writing-mode: vertical-lr;
+                            top: 0;
+                            left: 5%;
+                            padding: 5px 5px;
+                            color: #fff;
+                            background-color: $base;
+                            font-size: 20px;
+                        }
+                        .icon-group{
+                            position: absolute;
+                            top:70%;
+                            left:50%;
+                            transform: translate(-50%,-50%);
+                            @include i5Y{
+                                top:85%;    
+                            }
+                            i{
                                 transition: .3s ease;
-                                text-align: center;
                                 opacity: 0;
                                 font-size: 24px;
                                 font-weight: 900;
-                                letter-spacing: 3px;
                                 color:#fff;
-                                @include padY{
-                                    font-size: 22px;
+                                padding: 15px;
+                                cursor: pointer;
+                                &:hover{
+                                    color:$base;
                                 }
                             }
-                            .onsale-text{
-                                position: absolute;
-                                writing-mode: vertical-lr;
-                                top: 0;
-                                left: 5%;
-                                padding: 5px 5px;
-                                color: #fff;
-                                background-color: $base;
-                                font-size: 20px;
-                            }
-                            .icon-group{
-                                position: absolute;
-                                top:70%;
-                                left:50%;
-                                transform: translate(-50%,-50%);
-                                @include i5Y{
-                                    top:85%;    
-                                }
-                                i{
-                                    transition: .3s ease;
-                                    opacity: 0;
-                                    font-size: 24px;
-                                    font-weight: 900;
-                                    color:#fff;
-                                    padding: 15px;
-                                    cursor: pointer;
-                                    &:hover{
-                                        color:$base;
-                                    }
-                                }
-                            }
-                            
-                        }
-                        &:hover .onsale-text{
-                            opacity: 0.8;
-                        }
-                        &:hover .item-box{
-                            background-color: rgba(0,0,0, 0.4);
-                        }
-                        &:hover .item-txt, &:hover .icon-group i{
-                            opacity: 1;
-                        }
+                        }                    
+                    }
+                    &:hover .onsale-text{
+                        opacity: 0.8;
+                    }
+                    &:hover .item-box{
+                        background-color: rgba(0,0,0, 0.4);
+                    }
+                    &:hover .item-txt, &:hover .icon-group i{
+                        opacity: 1;
                     }
                 }
+            }
         }
     }
     .features{

@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import Cart from './Cart'
-import $ from 'jquery'
+import Cart from './Cart';
+import $ from 'jquery';
 export default {
     components:{
         Cart,

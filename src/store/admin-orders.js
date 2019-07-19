@@ -7,7 +7,7 @@ export default {
     },
     actions:{
         getOrders(context, page = 1){
-            const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/orders?page=${page}`
+            const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/orders?page=${page}`;
             context.commit('LOADING',true, {root:true});
             axios.get(api).then((res)=>{
                 context.commit("ORDERS", res.data.orders);

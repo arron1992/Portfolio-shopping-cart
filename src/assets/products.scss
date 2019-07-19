@@ -3,46 +3,46 @@
     margin:0;
     /* select-list */
     .select-list{
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            font-weight:bold;
-            margin: 100px auto 30px auto;
-            padding-left: 0;
-            padding-right: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        font-weight:bold;
+        margin: 100px auto 30px auto;
+        padding-left: 0;
+        padding-right: 0;
+        @include padY{
+            display: block;
+            width:80%;
+            border: 1px solid #eee;
+        }
+        @include i5Y{
+            display: block;
+            width:100%;
+            border: 1px solid #eee;
+        }
+        .select-list-item{
+            border:#fff 1px solid;
+            text-align: center;
+            font-size: 18px;
+            padding:20px 20px;
+            letter-spacing: 3px;
+            &:hover{
+                cursor: pointer;
+                border-bottom: 1px solid $base;
+            }
+            &.active{
+                transition: 0.6s all;
+                border-bottom: 1px solid $base;
+            }
             @include padY{
-                display: block;
-                width:80%;
-                border: 1px solid #eee;
-            }
-            @include i5Y{
-                display: block;
-                width:100%;
-                border: 1px solid #eee;
-            }
-            .select-list-item{
-                border:#fff 1px solid;
-                text-align: center;
-                font-size: 18px;
-                padding:20px 20px;
-                letter-spacing: 3px;
-                &:hover{
-                    cursor: pointer;
-                    border-bottom: 1px solid $base;
+                font-size: 14px;
+                padding:10px 15px;
+                &:hover, &.active{
+                    background-color: $base;
+                    color:#fff;
                 }
-                &.active{
-                    transition: 0.6s all;
-                    border-bottom: 1px solid $base;
-                }
-                @include padY{
-                    font-size: 14px;
-                    padding:10px 15px;
-                    &:hover, &.active{
-                        background-color: $base;
-                        color:#fff;
-                    }
-                } 
-            }
+            } 
+        }
     }
 
     /* product-card */

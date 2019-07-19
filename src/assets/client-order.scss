@@ -1,18 +1,17 @@
 .order{
     font-family: $font-family-set;
-    .table-res{
-        @include padX{
-            overflow-x: scroll;     
-        }
-    }
     .table-set{
         display: flex;
         justify-content: center;
         margin: 0;
-    }
-    .table-pos{
-        margin-top: 110px;
-
+        .table-res{
+            @include padX{
+                overflow-x: scroll;     
+            }
+        }
+        .table-pos{
+            margin-top: 110px;
+        }
     }
     table{
         th:nth-child(1), .order-table-img{

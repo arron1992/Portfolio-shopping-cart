@@ -110,11 +110,11 @@ export default {
         },
         updateCoupon(){
             const vm = this;
-            let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/coupon`
+            let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/coupon`;
             let methods = 'post';
 
             if(!vm.isNew){
-                api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/coupon/${vm.tempCoupon.id}` 
+                api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/coupon/${vm.tempCoupon.id}`;
                 methods = 'put';
             }    
             vm.$http[methods](api, {data: vm.tempCoupon}).then((res) => {

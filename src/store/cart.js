@@ -15,10 +15,9 @@ export default {
                 qty,
             };
 
-            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/cart`
+            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/cart`;
             context.commit('LOADING', true , {root:true} );            
-            axios.post(url, { data: item }).then((res)=>{  
-                
+            axios.post(url, { data: item }).then((res)=>{         
                 if(res.request.status){
                     context.commit('CART', res.data);
                     context.dispatch('getCart');

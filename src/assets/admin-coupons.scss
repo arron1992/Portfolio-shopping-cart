@@ -1,8 +1,6 @@
 .add-coupon-btn{
-    text-decoration-line: none !important;
     background-color: #333;
     padding:10px;
-    text-decoration: none !important;
     font-size: 20px;
     width:216px;
     text-align: center;
@@ -10,6 +8,8 @@
     font-family: monospace;
     display: block;
     margin: 95px 15px 30px auto;
+    text-decoration-line: none !important;
+    text-decoration: none !important;
     @include i5X{        
         margin: 95px auto 30px auto;
     }

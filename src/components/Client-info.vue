@@ -115,7 +115,7 @@ export default {
     methods:{
         submitOrder(){
             const vm = this;
-            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/order`
+            const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/order`;
             const order = vm.form;
             this.$validator.validate().then(valid => {
                 if (valid) {

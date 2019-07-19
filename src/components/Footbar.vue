@@ -19,7 +19,8 @@
                             <li><a href="#" class="footer-link">Team</a></li>
                             <li><a href="#" class="footer-link">Catalog Request/Download</a></li>
                         </ul>
-                    </div><div class="col-md-3 col-sm-12 footer-box">
+                    </div>
+                    <div class="col-md-3 col-sm-12 footer-box">
                         <h4 class="footer-title">Contact Us</h4>
                         <ul>
                             <li><a href="#" class="footer-link">Tel: (02)3345678</a></li>

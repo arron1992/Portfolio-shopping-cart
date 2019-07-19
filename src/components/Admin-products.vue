@@ -54,64 +54,62 @@
                     <form @submit.prevent="">
                         <div class="row">
                             <!-- Image Area-->
-                                <div class="col-md-6 col-sm-12 img-area">
-                                    <div class="file-upload-wrapper" data-text="Select your file...">
-                                        <input name="file-upload-field" ref="files" type="file" class="file-upload-field"
-                                        @change="uploadFile">
+                            <div class="col-md-6 col-sm-12 img-area">
+                                <div class="file-upload-wrapper" data-text="Select your file...">
+                                    <input name="file-upload-field" ref="files" type="file" class="file-upload-field"
+                                    @change="uploadFile">
+                                </div>
+                                    
+                                <input type="text" name="item-img-txt" id="item-img-txt" class="item-img-txt"
+                                v-model="tempProduct.image" placeholder="Input you website">
+                                    
+                                <div class="item-img-bg" :style="{backgroundImage: `url(${tempProduct.image})`}"></div>
+                                <textarea name="description" id="description" cols="30" rows="4" class="description"
+                                v-model="tempProduct.description" placeholder="Image Description"></textarea>
+                            </div>
+
+                            <!-- Set Area-->
+                            <div class="col-md-6 col-sm-12 set-area">
+                                <div class="info-group mb-2">
+                                    <label for="title">Product Content</label>
+                                    <input type="text" name="title" id="title" 
+                                    v-model="tempProduct.title" placeholder="Item name">  
+                                    <textarea name="content" id="content" cols="30" rows="4" class="textarea"
+                                    v-model="tempProduct.content" placeholder="Write somthing about your content?"></textarea>
+                                </div>
+                                <span class="info-group">Price</span>
+                                <div class="input-group mb-3">                
+                                    <div class="input-group-prepend w-100">
+                                        <span class="input-group-text">Original</span>
+                                        <input type="text" class="form-control" v-model="tempProduct.origin_price">
                                     </div>
-                                    
-                                    <input type="text" name="item-img-txt" id="item-img-txt" class="item-img-txt"
-                                    v-model="tempProduct.image" placeholder="Input you website">
-                                    
-                                    <div class="item-img-bg" :style="{backgroundImage: `url(${tempProduct.image})`}"></div>
-                                    <textarea name="description" id="description" cols="30" rows="4" class="description"
-                                    v-model="tempProduct.description" placeholder="Image Description"></textarea>
+                                    <div class="input-group-prepend w-100 mt-3">
+                                        <span class="input-group-text">Discount</span>
+                                        <input type="text" class="form-control" v-model="tempProduct.price">
+                                    </div>
                                 </div>
 
-                                <!-- Set Area-->
-                                <div class="col-md-6 col-sm-12 set-area">
-                                        <div class="info-group mb-2">
-                                            <label for="title">Product Content</label>
-                                            <input type="text" name="title" id="title" 
-                                            v-model="tempProduct.title" placeholder="Item name">  
-                                            <textarea name="content" id="content" cols="30" rows="4" class="textarea"
-                                            v-model="tempProduct.content" placeholder="Write somthing about your content?"></textarea>
+                                <span class="info-group mt-2">Specification</span>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend w-100">
+                                        <span class="input-group-text">Category</span>
+                                        <input type="text" class="form-control" v-model="tempProduct.category">
+                                    </div>
+                                        <div class="input-group-prepend w-100 mt-3">
+                                            <span class="input-group-text" id="basic-addon1">Unit</span>
+                                            <input type="text" class="form-control" v-model="tempProduct.unit">
                                         </div>
-
-                                        <span class="info-group">Price</span>
-                                        <div class="input-group mb-3">                
-                                            <div class="input-group-prepend w-100">
-                                                <span class="input-group-text">Original</span>
-                                                <input type="text" class="form-control" v-model="tempProduct.origin_price">
-                                            </div>
-                                            <div class="input-group-prepend w-100 mt-3">
-                                                <span class="input-group-text">Discount</span>
-                                                <input type="text" class="form-control" v-model="tempProduct.price">
-                                            </div>
-                                        </div>
-
-                                        <span class="info-group mt-2">Specification</span>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend w-100">
-                                                <span class="input-group-text">Category</span>
-                                                <input type="text" class="form-control" v-model="tempProduct.category">
-                                            </div>
-                                            <div class="input-group-prepend w-100 mt-3">
-                                                <span class="input-group-text" id="basic-addon1">Unit</span>
-                                                <input type="text" class="form-control" v-model="tempProduct.unit">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group form-check">
-                                            <input type="checkbox" 
-                                            v-model="tempProduct.is_enabled"
-                                            :true-value="1"
-                                            :false-value="0"
-                                            class="form-check-input" id="is_enabled">
-                                            <label class="form-check-label" for="is_enabled">Is enabled?</label>
-                                        </div>
-                                        <button type="submit" value="Upload" class="btn confirm-btn" @click.prevent="updateProduct(tempProduct.id), closeModal()">Submit</button>
                                 </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" 
+                                    v-model="tempProduct.is_enabled"
+                                        :true-value="1"
+                                        :false-value="0"
+                                        class="form-check-input" id="is_enabled">
+                                        <label class="form-check-label" for="is_enabled">Is enabled?</label>
+                                </div>
+                                <button type="submit" value="Upload" class="btn confirm-btn" @click.prevent="updateProduct(tempProduct.id), closeModal()">Submit</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -139,10 +137,10 @@ export default {
         openModal(isNew , item){
             if(isNew){
                 this.tempProduct = {}
-                this.isNew = true
+                this.isNew = true;
             } else {
-                this.tempProduct = this.tempProduct = Object.assign({}, item)
-                this.isNew = false
+                this.tempProduct = this.tempProduct = Object.assign({}, item);
+                this.isNew = false;
             }
             this.isHide = true;
         },
@@ -151,10 +149,10 @@ export default {
         },
         updateProduct(){
             const vm = this;
-            let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/product`
+            let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/product`;
             let methods = 'post';
             if(!vm.isNew){
-                api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/product/${vm.tempProduct.id}` 
+                api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/product/${vm.tempProduct.id}`; 
                 methods = 'put';
             }    
             vm.$http[methods](api, {data: vm.tempProduct}).then((res) => {
@@ -181,7 +179,7 @@ export default {
                 // vm.tempProduct.image = res.data.imageUrl; => 因為資料結構一開始沒設定好, 所以用 $set 強制綁定確保雙向綁定
                 vm.$set(vm.tempProduct, 'image', res.data.imageUrl);
 
-                const id = Math.floor(new Date() / 1000)
+                const id = Math.floor(new Date() / 1000);
                 const imgObj = {
                     id : id,
                     res : res.data

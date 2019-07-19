@@ -10,7 +10,7 @@ export default {
             context.commit('LOADING',true, {root:true});
             axios.get(url).then((res)=>{
                 if (res.data.success) {                   
-                    context.commit('ITEM', res.data.product)
+                    context.commit('ITEM', res.data.product);
                 }
                 context.commit('LOADING',false, {root:true});
             })
@@ -18,7 +18,7 @@ export default {
     },
     mutations:{
         ITEM(state, payload){
-            state.item = payload
+            state.item = payload;
         }
     },
     getters:{

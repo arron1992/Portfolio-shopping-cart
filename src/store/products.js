@@ -8,10 +8,10 @@ export default {
     actions:{
         getProducts(context){
             const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/products/all`
-            context.commit('LOADING', true , {root:true} )
+            context.commit('LOADING', true , {root:true});
             axios.get(url).then((res)=>{
                 context.commit('PRODUCTS',res.data.products);
-                context.commit('CATEGORIES',res.data.products)
+                context.commit('CATEGORIES',res.data.products);
                 context.commit('LOADING', false, { root: true });
             })
         },
@@ -25,7 +25,7 @@ export default {
             payload.forEach((item) => {
                 categories.add(item.category);
             });
-            state.categories = categories
+            state.categories = categories;
         }
     },
     getters:{
