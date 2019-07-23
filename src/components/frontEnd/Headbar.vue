@@ -10,18 +10,18 @@
             </div>
             <ul class="menu">
                 <li>
-                    <router-link to="/home" class="menu-item">Home</router-link>
+                    <router-link to="/home" class="menu-item" active-class="active">Home</router-link>
                 </li> 
                 <li>
-                    <router-link to="/store/products" class="menu-item">Products</router-link>
+                    <router-link to="/store/products" class="menu-item" active-class="active">Products</router-link>
                 </li>   
-                <li>
-                    <router-link to="/admin" class="menu-item">Admin</router-link>
-                </li>
                 <li>
                     <router-link to="/login" class="menu-item">
                         Sign In
                     </router-link>
+                </li>
+                <li>
+                    <router-link to="/admin" class="menu-item" active-class="active">Admin</router-link>
                 </li>
             </ul>          
             <Cart></Cart>
@@ -32,6 +32,7 @@
 <script>
 import Cart from './Cart';
 import $ from 'jquery';
+import {mapActions, mapGetters} from 'vuex';
 export default {
     components:{
         Cart,
@@ -41,6 +42,8 @@ export default {
     },
     methods:{
     },
-
+    computed:{
+        ...mapGetters(["signIn"]),
+    }
 }
 </script>

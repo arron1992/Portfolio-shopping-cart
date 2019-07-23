@@ -1,59 +1,68 @@
-.order-table{
-    @include padX{
-        overflow-x: scroll;         
-    }
-    margin: 90px auto 0px auto;
-    max-width: 97%;
-    .table{
-        padding: 0;
-        .ad-order-thead{
-            font-family: "HelveticaNeue-Bold";
-            font-size: 24px;
-            color: #000000;
-            @include padX{
-                font-size: 20px;
-            }
-            @include padY{
-                font-size: 16px;
-            }
+.orders-group{
+    margin:0;
+    display: flex;
+    flex-wrap: wrap;
+    .order-table{
+        position: relative;
+        width: 100%;
+        padding: 0px 15px;
+        margin: 90px auto 0px auto;
+        @include padX{
+            overflow-x: scroll;  
+            padding: 5px;
         }
-        th{
-            vertical-align: middle ;
-        }
-        th:nth-child(1),td:nth-child(1){
-            @include i5X{
-                display: none;
+        .table{
+            padding: 0;
+            .ad-order-thead{
+                font-family: "HelveticaNeue-Bold";
+                font-size: 24px;
+                color: #000000;
+                @include padX{
+                    font-size: 20px;
+                }
+                @include padY{
+                    font-size: 16px;
+                }
             }
-        }
-        td{
-            padding: 8px;
-        }
-        .ad-order-tbody{
-            font-family: "HelveticaNeue";
-            font-size: $font-span;
-            .table-ul{
-                list-style-type: none;
-                margin:10px 0px;
-                padding-inline-start: 0px;
+            th{
+                vertical-align: middle ;
             }
-            .able{
-                display: block;
-                background-color: $able;
-                width:100%;
+            th:nth-child(1),td:nth-child(1){
+                @include i5X{
+                    display: none;
+                }
             }
-            .unable{
-                background-color: $unable;
-                display: block;
+            td{
+                padding: 8px;
             }
-            .able, .unable {
-                border-radius: 5px;
-                font-size: 18px;
-                letter-spacing: 2px;  
-                text-align: center;
-                padding:10px 20px;
-                color:#fff;
+            .ad-order-tbody{
+                font-family: "HelveticaNeue";
+                font-size: $font-span;
+                .table-ul{
+                    list-style-type: none;
+                    margin:10px 0px;
+                    padding-inline-start: 0px;
+                }
+                .able{
+                    display: block;
+                    background-color: $able;
+                    width:100%;
+                }
+                .unable{
+                    background-color: $unable;
+                    display: block;
+                }
+                .able, .unable {
+                    border-radius: 5px;
+                    font-size: 18px;
+                    letter-spacing: 2px;  
+                    text-align: center;
+                    padding:10px 20px;
+                    color:#fff;
+                }
+                
             }
-            
         }
     }
 }
+

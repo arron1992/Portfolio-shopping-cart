@@ -12,7 +12,7 @@
     </div>
 </template>
 <script>
-import Alert from '../components/Alert-message.vue';
+import Alert from '../components/mutual/Alert-message.vue';
 import {mapActions, mapGetters} from 'vuex';
 export default {
     components : { 

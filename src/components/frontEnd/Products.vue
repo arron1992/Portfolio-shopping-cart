@@ -4,8 +4,7 @@
         <Alert/>
         
         <!-- list-group-area -->
-        <div class="row products-group">
-            <div class="col-12">
+        <div class="products-group">
                 <ul class="select-list">
                     <li class="select-list-item" 
                     @click.prevent="keyText = ''" 
@@ -18,7 +17,6 @@
                         :class="{'active': item === keyText}">{{item}}
                     </li>
                 </ul>
-            </div>
 
             <!-- main-product-area -->
             <div class="col-12">
@@ -72,7 +70,7 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Alert from '../components/Alert-message.vue';
+import Alert from '../mutual/Alert-message.vue';
 export default {
 components: {
     Alert

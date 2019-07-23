@@ -4,12 +4,12 @@
         <Alert></Alert>
 
         <!-- Table Area-->
-        <div class="row m-0">
+        <div class="products-group">
             <a href="#" class="add-product-btn" @click.prevent="openModal(true)">Add New Product
                 <i class="fas fa-plus"></i>
             </a>  
 
-            <div class="col-12 products-table">
+            <div class="products-table">
                 <table class="table table-hover table-bordered">
                     <thead class="ad-product-thead">
                         <th>Product</th>
@@ -119,7 +119,7 @@
 </template>
 <script>
 import Pagination from './Pagination';
-import Alert from '../components/Alert-message.vue';
+import Alert from '../mutual/Alert-message.vue';
 import {mapActions, mapGetters} from 'vuex';
 export default {
     components:{
@@ -166,7 +166,9 @@ export default {
             // 04. 上傳 formdata
 
             const vm = this;
+            console.log(vm);
             const img = vm.$refs.files.files[0];
+            
             const formData = new FormData;
             formData.append('file-upload', img);            
             const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/upload`

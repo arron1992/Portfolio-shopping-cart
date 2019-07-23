@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import adminBar from '../components/Admin-bar'
+import adminBar from '../components/backEnd/Admin-bar'
 export default {
     components:{
         adminBar

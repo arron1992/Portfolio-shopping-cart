@@ -2,9 +2,9 @@
     <div class="jumbotron">
         <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner bg-banner">
-                <div class="carousel-item active bg-banner-item" data-interval="10000"></div>
-                <div class="carousel-item bg-banner-item" data-interval="2000"></div>
-                <div class="carousel-item bg-banner-item"></div>
+                <div class="carousel-item active bg-banner-item-1" data-interval="10000"></div>
+                <div class="carousel-item bg-banner-item-2" data-interval="2000"></div>
+                <div class="carousel-item bg-banner-item-3"></div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -26,7 +26,7 @@
         }
         .bg-banner{
             max-width:100%;
-            height:550px;
+            height:660px;
             @media(max-width: 568px){
                 height:350px;
             }
@@ -35,8 +35,22 @@
             }
         }
     }
-    .bg-banner-item{
-        background:url(https://images.unsplash.com/photo-1546466619-1c42ee80a82b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60) no-repeat;
+    .bg-banner-item-1{
+        background:url(https://images.unsplash.com/photo-1522056615691-da7b8106c665?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80) no-repeat;
+        background-position: center center;
+        background-size:cover;
+        width:100%;
+        height:100%;
+    } 
+    .bg-banner-item-2{
+        background:url(https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80) no-repeat;
+        background-position: center center;
+        background-size:cover;
+        width:100%;
+        height:100%;
+    } 
+    .bg-banner-item-3{
+        background:url(https://images.unsplash.com/photo-1517321579022-aa4d037c3b6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80) no-repeat;
         background-position: center center;
         background-size:cover;
         width:100%;

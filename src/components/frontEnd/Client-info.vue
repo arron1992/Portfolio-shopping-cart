@@ -93,7 +93,7 @@
 </template>
 <script>
 import {mapActions,mapGetters} from 'vuex';
-import Alert from './Alert-message.vue';
+import Alert from '../mutual/Alert-message.vue';
 export default {
     components:{
         Alert

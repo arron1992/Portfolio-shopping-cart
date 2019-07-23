@@ -15,73 +15,84 @@
     }
 }
 
-.products-table{
-    @include padX{
-        overflow-x: scroll;         
-    }
-    .table{
-        th{
-            vertical-align: middle ;
+.products-group{
+    margin:0;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    .products-table{
+        position: relative;
+        width: 100%;
+        padding: 0px 15px;
+        @include padX{
+            overflow-x: scroll; 
+            padding: 5px;
         }
-        .ad-product-thead{
-            font-family: "HelveticaNeue-Bold";
-            font-size: 20px;
-            color: #333333;
-        }
-        .ad-product-tbody{
-            font-family: "HelveticaNeue";
-            font-size: 18px;
-            .ad-product-img{
-                width: 50px;
-                height: 50px;
-                background-size: cover;
-                background-position: center center;
-                margin-right: 40px;
+        .table{
+            th{
+                vertical-align: middle ;
             }
-            .able{
-                background-color: $able;
+            .ad-product-thead{
+                font-family: "HelveticaNeue-Bold";
+                font-size: 20px;
+                color: #333333;
             }
-            .unable{
-                background-color: $unable;
-            }
-            .able, .unable, .edit-btn, .remove-btn{
-                padding:10px 20px;
-                border-radius: 5px;
+            .ad-product-tbody{
+                font-family: "HelveticaNeue";
                 font-size: 18px;
-                color: #fff;
-                letter-spacing: 2px;
-                text-decoration: none;    
-                text-align: center;
-            }
-            .edit-btn{
-                border:1px $title solid;
-                margin-right: 15px;
-                color:#333;
-                &:hover{
-                    background-color: $title;
-                    color:#fff
+                .ad-product-img{
+                    width: 50px;
+                    height: 50px;
+                    background-size: cover;
+                    background-position: center center;
+                    margin-right: 40px;
+                }
+                .able{
+                    background-color: $able;
+                }
+                .unable{
+                    background-color: $unable;
+                }
+                .able, .unable, .edit-btn, .remove-btn{
+                    padding:10px 20px;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    color: #fff;
+                    letter-spacing: 2px;
+                    text-decoration: none;    
+                    text-align: center;
+                }
+                .edit-btn{
+                    border:1px $title solid;
+                    margin-right: 15px;
+                    color:#333;
+                    &:hover{
+                        background-color: $title;
+                        color:#fff
+                    }
+                }
+                .remove-btn{
+                    border:1px $warning solid;
+                    margin-right: 15px;
+                    color:#333;
+                    &:hover{
+                        background-color: $warning;
+                        color:#fff
+                    } 
+                }
+                .edit-btn, .remove-btn{
+                    @include padX{
+                        padding: 10px;         
+                    }
+                    @include i5X{
+                        padding: 5px;                
+                    }
                 }
             }
-            .remove-btn{
-                border:1px $warning solid;
-                margin-right: 15px;
-                color:#333;
-                &:hover{
-                    background-color: $warning;
-                    color:#fff
-                } 
-            }
-            .edit-btn, .remove-btn{
-                @include padX{
-                    padding: 10px;         
-                }
-                @include i5X{
-                    padding: 5px;                
-                }
-            }
-        }
-    } 
+        } 
+    }
 }
+
 
 body{
     position: relative;

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import goTop from './components/goTop.vue';
+import goTop from './components/mutual/goTop.vue';
 import $ from 'jquery';
 export default {
   components:{

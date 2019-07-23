@@ -38,8 +38,8 @@
             </div>
             
             <!-- description -->
-            <div class="row">
-                <div class="col-12 des-area">
+            <div class="description">
+                <div class="des-area">
                     <span class="des-span">DESCRIPTION</span>   
                     <p>{{item.description}}</p>
                 </div>
@@ -49,7 +49,7 @@
 </template>
 <script>
 import {mapActions, mapGetters} from 'vuex';
-import Alert from '../components/Alert-message.vue';
+import Alert from '../mutual/Alert-message.vue';
 export default {
     components: {
         Alert

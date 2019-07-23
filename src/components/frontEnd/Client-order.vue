@@ -2,8 +2,8 @@
     <div class="order">
         <Loading :active.sync="isLoading"></Loading>
         <div v-if="order.id">
-            <div class="row table-set">
-                <div class="col-12 table-res">
+            <div class="table-set">
+                <div class="table-res">
                     <table class="table table-striped table-light shadow-sm table-pos">
                         <thead>
                             <tr>
@@ -37,8 +37,8 @@
             </div>
             <br/>
 
-            <div class="row text-secondary table-set">
-                <div class="col-12 table-res">
+            <div class="text-secondary table-set">
+                <div class="table-res">
                     <table class="table table-striped table-light shadow-sm">
                         <thead>
                             <tr>

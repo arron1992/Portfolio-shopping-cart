@@ -2,8 +2,8 @@
     <div>
         <loading :active.sync="isLoading"></loading>
         <!-- Table Area-->
-        <div class="row m-0">
-            <div class="col-12 order-table p-0">
+        <div class="orders-group">
+            <div class="order-table">
                 <table class="table table-hover table-bordered">
                     <thead class="ad-order-thead">
                         <th >Purchase time</th>

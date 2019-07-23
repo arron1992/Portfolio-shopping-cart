@@ -54,13 +54,13 @@
                 </div>        
             </div>
 
-            <div class="bgcover">
+            <div class="bgcover" id="target">
                 <div class="bgcover-user-area">
                     <div class="bgcover-user-info">         
                         <img src="../assets/image/user.png" alt="" class="bgcover-user-img">
-                            <strong class="d-block h6">Emlia</strong>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate exercitationem labore sunt omnis numquam magnam, culpa odit in laboriosam provident quidem nulla. Laudantium, esse provident?</p>
-                        </div>
+                        <strong class="d-block h6">Emlia</strong>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate exercitationem labore sunt omnis numquam magnam, culpa odit in laboriosam provident quidem nulla. Laudantium, esse provident?</p>
+                    </div>
                 </div>
             </div>
 
@@ -78,10 +78,10 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Alert from '../components/Alert-message.vue';
-import Headbar from '../components/Headbar.vue';
-import Footbar from '../components/Footbar.vue';
-import Jumbotron from '../components/Jumbotron.vue';
+import Alert from '../components/mutual/Alert-message.vue';
+import Headbar from '../components/frontEnd/Headbar.vue';
+import Footbar from '../components/frontEnd/Footbar.vue';
+import Jumbotron from '../components/frontEnd/Jumbotron.vue';
 export default {
     components:{
         Headbar,

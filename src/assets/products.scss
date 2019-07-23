@@ -8,8 +8,8 @@
         justify-content: center;
         font-weight:bold;
         margin: 100px auto 30px auto;
-        padding-left: 0;
-        padding-right: 0;
+        width: 100%;
+        padding: 0 15px;
         @include padY{
             display: block;
             width:80%;

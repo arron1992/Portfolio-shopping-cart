@@ -57,6 +57,7 @@ export default new Vuex.Store({
                 status : payload.success,
                 id : payload.uid,
             })
+            console.log(state.signIn)
         }
     },
     getters:{

@@ -3,12 +3,12 @@
         <loading :active.sync="isLoading"></loading>
         
         <!-- Table Area-->
-        <div class="row m-0">
+        <div class="coupons-group">
             <a href="#" class="add-coupon-btn text-decoration-none text-white" @click.prevent="openModal(true)">Add New Coupon
                 <i class="fas fa-plus"></i>
             </a> 
 
-            <div class="col-12 coupons-table">
+            <div class="coupons-table">
                 <table class="table table-hover table-bordered">
                     <thead class="ad-coupon-thead">
                         <th>Coupon Name</th>

@@ -1,88 +1,96 @@
-.add-coupon-btn{
-    background-color: #333;
-    padding:10px;
-    font-size: 20px;
-    width:216px;
-    text-align: center;
-    border-radius: 5px;
-    font-family: monospace;
-    display: block;
-    margin: 95px 15px 30px auto;
-    text-decoration-line: none !important;
-    text-decoration: none !important;
-    @include i5X{        
-        margin: 95px auto 30px auto;
+.coupons-group{
+    margin:0;
+    display: flex;
+    flex-wrap: wrap;
+    .add-coupon-btn{
+        background-color: #333;
+        padding:10px;
+        font-size: 20px;
+        width:216px;
+        text-align: center;
+        border-radius: 5px;
+        font-family: monospace;
+        display: block;
+        margin: 95px 15px 30px auto;
+        text-decoration-line: none !important;
+        text-decoration: none !important;
+        @include i5X{        
+            margin: 95px auto 30px auto;
+        }
     }
-}
-
-.coupons-table{
-    @include padY{
-        overflow-x: scroll;         
-    }
-    .table{
-        th{
-            vertical-align: middle ;
+    .coupons-table{
+        position: relative;
+        width: 100%;
+        padding: 0 15px;
+        @include padY{
+            overflow-x: scroll; 
+            padding: 5px;
         }
-        th:nth-child(1), td:nth-child(1){
-            @include i5X{
-                display: none;         
+        .table{
+            th{
+                vertical-align: middle ;
             }
-        }
-        .ad-coupon-thead{
-            font-family: "HelveticaNeue-Bold";
-            font-size: 20px;
-            color: #000000;
-        }
-        .ad-coupon-tbody{
-            font-family: "HelveticaNeue";
-            font-size: $font-span;
-            .table-ul{
-                list-style-type: none;
-                margin:10px 0px;
-                padding-inline-start: 0px;
-            }
-            .able{
-                background-color: $main;
-            }
-            .unable{
-                background-color: $unable;
-            }
-            .able, .unable, .edit-btn, .remove-btn{
-                padding:10px 20px;
-                border-radius: 5px;
-                font-size: 18px;
-                color: #fff;
-                letter-spacing: 2px;
-                text-decoration: none;    
-                text-align: center;
-                width:100px;
-            }
-            .edit-btn{
-                border:1px $title solid;
-                margin-right: 15px;
-                color:#000;
-                &:hover{
-                    background-color: $title;
-                    color:#fff
-                }
-            }
-            .remove-btn{
-                border:1px $warning solid;
-                margin-right: 15px;
-                color:#000;
-                &:hover{
-                    background-color: $warning;
-                    color:#fff
-                } 
-            }
-            .edit-btn, .remove-btn{
-                @include padX{
-                    padding: 10px;         
-                }
+            th:nth-child(1), td:nth-child(1){
                 @include i5X{
-                    padding: 5px;                
+                    display: none;         
                 }
-            }         
+            }
+            .ad-coupon-thead{
+                font-family: "HelveticaNeue-Bold";
+                font-size: 20px;
+                color: #000000;
+            }
+            .ad-coupon-tbody{
+                font-family: "HelveticaNeue";
+                font-size: $font-span;
+                .table-ul{
+                    list-style-type: none;
+                    margin:10px 0px;
+                    padding-inline-start: 0px;
+                }
+                .able{
+                    background-color: $main;
+                }
+                .unable{
+                    background-color: $unable;
+                }
+                .able, .unable, .edit-btn, .remove-btn{
+                    padding:10px 20px;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    color: #fff;
+                    letter-spacing: 2px;
+                    text-decoration: none;    
+                    text-align: center;
+                    width:100px;
+                }
+                .edit-btn{
+                    border:1px $title solid;
+                    margin-right: 15px;
+                    color:#000;
+                    &:hover{
+                        background-color: $title;
+                        color:#fff
+                    }
+                }
+                .remove-btn{
+                    border:1px $warning solid;
+                    margin-right: 15px;
+                    color:#000;
+                    &:hover{
+                        background-color: $warning;
+                        color:#fff
+                    } 
+                }
+                .edit-btn, .remove-btn{
+                    @include padX{
+                        padding: 10px;         
+                    }
+                    @include i5X{
+                        padding: 5px;                
+                    }
+                }         
+            }
         }
     }
 }

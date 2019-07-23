@@ -4,7 +4,13 @@
         display: flex;
         justify-content: center;
         margin: 0;
+        margin:0;
+        display: flex;
+        flex-wrap: wrap;
         .table-res{
+            position: relative;
+            width: 100%;
+            padding: 0 15px;
             @include padX{
                 overflow-x: scroll;     
             }
