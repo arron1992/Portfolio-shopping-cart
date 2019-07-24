@@ -8,6 +8,7 @@
             <div class="menu-img">
                 <h1><router-link to="/home" class="menu-item">電商</router-link></h1>
             </div>
+
             <ul class="menu">
                 <li>
                     <router-link to="/home" class="menu-item" active-class="active">Home</router-link>
@@ -16,12 +17,10 @@
                     <router-link to="/store/products" class="menu-item" active-class="active">Products</router-link>
                 </li>   
                 <li>
-                    <router-link to="/login" class="menu-item">
-                        Sign In
-                    </router-link>
+                    <router-link to="/login" class="menu-item">Sign In</router-link>
                 </li>
                 <li>
-                    <router-link to="/admin" class="menu-item" active-class="active">Admin</router-link>
+                    <router-link to="/admin" class="menu-item" active-class="active"><i class="fas fa-user-cog"></i></router-link>
                 </li>
             </ul>          
             <Cart></Cart>

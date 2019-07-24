@@ -166,7 +166,6 @@ export default {
             // 04. 上傳 formdata
 
             const vm = this;
-            console.log(vm);
             const img = vm.$refs.files.files[0];
             
             const formData = new FormData;
@@ -177,7 +176,6 @@ export default {
                     'Content-type' : 'multipart/form-data'
                 }      
             }).then((res)=>{
-                console.log(res)
                 // vm.tempProduct.image = res.data.imageUrl; => 因為資料結構一開始沒設定好, 所以用 $set 強制綁定確保雙向綁定
                 vm.$set(vm.tempProduct, 'image', res.data.imageUrl);
 

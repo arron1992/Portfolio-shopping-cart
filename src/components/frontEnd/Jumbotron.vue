@@ -26,7 +26,8 @@
         }
         .bg-banner{
             max-width:100%;
-            height:660px;
+            // height:660px;
+            height:600px;
             @media(max-width: 568px){
                 height:350px;
             }

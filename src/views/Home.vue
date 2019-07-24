@@ -54,7 +54,7 @@
                 </div>        
             </div>
 
-            <div class="bgcover" id="target">
+            <div class="bgcover">
                 <div class="bgcover-user-area">
                     <div class="bgcover-user-info">         
                         <img src="../assets/image/user.png" alt="" class="bgcover-user-img">

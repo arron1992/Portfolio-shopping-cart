@@ -11,7 +11,7 @@
         left:11px;
         opacity: 0;
 
-        &:checked ~ .admin-menu {
+        &:checked ~ .menu {
             max-height: 500px;
         }
     }
@@ -42,49 +42,45 @@
         padding: 0;
     }
     .admin-menu{
-        display: flex;
+        margin-bottom: 0px;
         margin-left: auto;
-        transition: max-height 1s;
-        @include i5X{
+        display: flex;
+        @include padY{
+            /* ################## */
             max-height: 0px;
             overflow: hidden;
-            display: block; 
-            margin:0;
-            text-align: left;
+            transition: max-height 1s; 
+            /* ################## */
             position: absolute;
-            left:0;
-            right:0;
-            top:60.48px;
-            width:100%;
-            z-index: 888;
-            background-color: rgba(0,0,0,0.7);
+            z-index: 9999999;
+            background-color: rgba(0,0,0,0.4);
+            padding-left: 0;
+            top: 66.4px;
+            left: 0;
+            right: 0;
+            display: block;
+            text-align: left;
         }
-    }
-    li{
-        font-size: $font-span;
-        padding:20px;
-        cursor: pointer;
-        &:hover .nav-item{
-            color:#333
-        }
-        @include i5X{
-            border-bottom: 1px solid #333;
-            &:hover{
-                background-color: transparent;
+        li{
+            list-style:none;
+            margin:0;
+            .admin-menu-item{
+                text-decoration: none;
+                color:#fff;
+                font-size: 20px;
+                padding: 26.5px 20px;
+                &:hover, &:focus, &.active{
+                    color:#333;
+                    font-weight: 900;
+                } 
+                @include padY{
+                    padding: 15px 0px 15px 15px;
+                    border-bottom : 1px solid #666;
+                    display: block;
+                    width:100%;
+                    font-size: 20px;
+                } 
             }
-            &:hover .nav-item{
-                color:$base;
-            }
-        }
-    }
-    .nav-item{
-        text-decoration: none;
-        color: #fff;
-        text-align: center;
-        margin:0;
-        font-weight: 900; 
-        @include padY{
-            font-size: 16px;        
         }
     }
     .sign-out{
@@ -94,12 +90,12 @@
         font-weight: 900;
         font-size: 18px;
         padding: 20px;
-        cursor: pointer;
+        cursor: pointer;       
         &:hover{
             color:#333
         }
         @include padY{
-            font-size: 14px;
+            margin-left: auto;
         }
         @include i5X{
             padding: 20px 10px 20px 0px;

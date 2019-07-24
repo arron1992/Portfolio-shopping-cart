@@ -19,7 +19,7 @@ export default {
         removeProduct(context, id){
             const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMERPATH}/admin/product/${id}`;
             context.commit('LOADING',true, {root:true});
-            axios.delete(url).then((res) => {
+            axios.delete(url).then(() => {
                 context.dispatch("getProducts");
                 context.commit('LOADING',false, {root:true});
             })

@@ -54,13 +54,13 @@ export default new Router({
     },
     {
       path: '/admin',
-      name: '',
+      name: 'admin',
       component: () => import('./views/AdminPage.vue'),
       meta: { requiresAuth: true },
       children:[
         {
-          path: '',
-          name: '',
+          path: 'products',
+          name: 'admin-products',
           component: () => import('./components/backEnd/Admin-products'),
           meta: { requiresAuth: true }, 
         },

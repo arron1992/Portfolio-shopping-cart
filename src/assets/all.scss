@@ -7,20 +7,20 @@
 @import "./helpers/mixin";
 
 /*--- components ---*/
-@import "./home.scss";
-@import "./products.scss";
-@import "./login-page.scss";
-@import "./cart.scss";
-@import "./product.scss";
-@import "./client-info.scss";
-@import "./client-order.scss";
-@import "./admin-bar.scss";
-@import "./admin-orders.scss";
-@import "./admin-coupons.scss";
-@import "./admin-products.scss";
-@import "./alert-message.scss";
+@import "./frontEnd/home.scss";
+@import "./frontEnd/products.scss";
+@import "./frontEnd/login-page.scss";
+@import "./frontEnd/cart.scss";
+@import "./frontEnd/product.scss";
+@import "./frontEnd/client-info.scss";
+@import "./frontEnd/client-order.scss";
+@import "./backEnd/admin-bar.scss";
+@import "./backEnd/admin-orders.scss";
+@import "./backEnd/admin-coupons.scss";
+@import "./backEnd/admin-products.scss";
+@import "./mutual/alert-message.scss";
 
 /*--- lay out ---*/
-@import "./headbar.scss";
-@import "./footbar.scss";
+@import "./frontEnd/headbar.scss";
+@import "./frontEnd/footbar.scss";
 
