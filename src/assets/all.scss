@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/functions";
+@import "./helpers/_variables.scss";
+@import "~bootstrap/scss/bootstrap";
+
+/* mixin */
+@import "./helpers/base";
+@import "./helpers/mixin";
+
+/*--- components ---*/
+@import "./frontEnd/home.scss";
+@import "./frontEnd/products.scss";
+@import "./frontEnd/login-page.scss";
+@import "./frontEnd/cart.scss";
+@import "./frontEnd/product.scss";
+@import "./frontEnd/client-info.scss";
+@import "./frontEnd/client-order.scss";
+@import "./backEnd/admin-bar.scss";
+@import "./backEnd/admin-orders.scss";
+@import "./backEnd/admin-coupons.scss";
+@import "./backEnd/admin-products.scss";
+@import "./mutual/alert-message.scss";
+
+/*--- lay out ---*/
+@import "./frontEnd/headbar.scss";
+@import "./frontEnd/footbar.scss";
+
