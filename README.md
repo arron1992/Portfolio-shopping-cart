@@ -1,5 +1,5 @@
 # Modules 電商網站
-![image](https://github.com/arron1992/Portfolio-shopping-cart/blob/ffa2aa92c2f1e09d1c7d7042243c5cc0725ade47/product.JPG)
+![image](https://github.com/arron1992/Portfolio-shopping-cart/blob/README-update/Cart-Img.JPG)
 
 ## Demo
 [Modules](https://arron1992.github.io/Portfolio-shopping-cart/) 
